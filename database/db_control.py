@@ -11,10 +11,25 @@ def get_panel_detail_by_region_HKI():
                  "AND panel.region='HKI'"
     panel_list=[]
     for row in db_connect.execute_select(SELECT_QUERY):
-        panel_list.append(Panel(row['pid']), row['name'], row['region'],
+        panel_list.append(Panel(row['pid'], row['name'], row['region'],
                           row['location'], row['latitude'], row['longitude'],
                           row['height'], row['width'], row['airtime_rate'],
                           row['pedestrain_flow'], row['cap'], row['used'],row['path'])
         return panel_list
 
 """panel detail in booking.html"""
+def get_panel_detail():
+    SELECT_QUERY="SELECT panel.*, panel_source.path, panel_usage FROM panel" \
+                 "INNER JOIN panel_usage" \
+                 "ON panel.pid=panel_source.pid=panel_usage.pid" \
+                 "WHERE panel_source.img_no='1'"
+    panel_list=[]
+    for row in db_connect.execute_select(SELECT_QUERY):
+        panel_list.append(Panel(row['pid'], row['name'], row['region'],
+                          row['location'], row['latitude'], row['longitude'],
+                          row['height'], row['width'], row['airtime_rate'],
+                          row['pedestrain_flow'], row['cap'], row['used'],row['path']))
+
+"""panel_list_all_image in booking.html"""
+def list_all_image(pid):
+    SELECT_QUERY="SELECT panel_source.path FROM panel_source WHERE pid = {};".format(pid)
