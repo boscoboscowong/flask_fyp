@@ -1,0 +1,234 @@
+{% extends  'template.html' %}
+{% set active_page='reserve' %}
+
+{% block external_css %}
+<link href="{{ url_for('static', 'css/daterangepicker.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+        <!--progress-bar-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>booking</h3>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/progress-bar-->
+
+        <!--slider-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="img/slider/slider_1.jpg">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/slider/slider_2.jpg">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/slider/slider_3.jpg">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/slider/slider_4.jpg">
+                        </div>
+
+                        <div class="item">
+                            <img src="img/slider/slider_5.jpg">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--/slider-->
+
+        <!--first row-->
+        <div class="row">
+            <!--booking form-->
+            <div class="col-lg-4">
+                <form style="outline:solid; outline-width: 1.5px; outline-color:#b99696; padding: 0px 5px 5px 5px">
+                    <h2 class="text-center">Booking Form</h2>
+                    <div class="form-group" style="padding: 5px 0px 10px">
+                        <label>Date Range</label>
+                        <div class="input-group date" id="daterangepicker">
+                            <input type="text" class="form-control" name="daterange" value="2016/01/01 - 2016/12/31" />
+                            <span class="input-group-addon" name="daterange">
+<span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="padding: 5px 0px 10px">
+                        <label>Source Type</label>
+                        <select class="form-control">
+                            <option>Image</option>
+                            <option>Video</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="padding: 5px 0px 30px">
+                        <label>File Input</label>
+                        <input type="file" id="file_upload" />
+                    </div>
+                    <br>
+                    <button type="submit" href="payment.html" class="btn btn-danger btn-group-lg btn-group-justified" style="font-weight: bold; font-size: 18px; padding: 0px 0px 10px">Request to Book</button>
+                </form>
+            </div>
+            <!--/booking form-->
+
+            <!--panel detail-->
+            <div class="col-lg-8">
+                <br>
+                <div class="panel panel-info chat">
+                    <div class="panel-heading">
+                        <svg class="glyph stroked clipboard with paper">
+                            <use xlink:href="#stroked-clipboard-with-paper" />
+                        </svg>Panel Details</div>
+                    <div class="panel-body">
+                        <ul>
+                            <li class="clearfix">
+                                <img class="center-block" src="img/hk-central-003_1.png" height="200" width="300">
+                            </li>
+
+                            <li class="clearfix">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td style="font-weight:bold">Name</td>
+                                            <td>HK-Central-003</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Region</td>
+                                            <td>HK</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Location</td>
+                                            <td>Infinitus Plaza, 199 Des Voeus Road, Central</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Height</td>
+                                            <td>11m</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Width</td>
+                                            <td>6.5m</td>
+                                        </tr>
+                                        <td style="font-weight:bold">Opening Hours</td>
+                                        <td>08:00 - 22:00 &emsp;&emsp;&emsp; Mon - Sun</td>
+                                        <tr>
+                                            <td style="font-weight:bold">Airtime Rate (daily)</td>
+                                            <td>HKD 4,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Pedestrain Flow (daily)</td>
+                                            <td>220,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Capacity</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <td style="font-weight:bold">Used</td>
+                                        <td>1</td>
+                                    </table>
+                                </div>
+                            </li>
+
+                            <li class="clearfix">
+                                <img src="img/hk-central-003_1.png" height="150" width="250">
+                                <img src="img/hk-central-003_2.png" height="150" width="250">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/first row-->
+
+        <!--map-->
+        <div class="row">
+            <hr>
+            <div class="col-lg-12">
+                <div id="map-container"></div>
+            </div>
+        </div>
+        <!--/map-->
+
+        <!--other choice-->
+        <div class="row" style="margin-bottom: 20px;">
+            <hr>
+            <!--header-->
+            <div class="panel">
+                <div class="panel-heading">
+                    <svg class="glyph stroked map">
+                        <use xlink:href="#stroked-map" />
+                    </svg>Other Choices
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="hovereffect">
+                    <img class="center-block" src="img/hk-central-001_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
+                    <a href="booking.html">
+                        <div class="overlay">
+                            <h2>HK-Central-001</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="hovereffect">
+                    <img class="center-block" src="img/hk-causewaybay-002_1.png" height="200" width="300" style="margin-bottom: 30px;">
+                    <a href="booking.html">
+                        <div class="overlay">
+                            <h2>HK-Causeway Bay-002</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="hovereffect">
+                    <img class="center-block" src="img/hk-central-002_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
+                    <a href="booking.html">
+                        <div class="overlay">
+                            <h2>HK-Central-002</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--/other choice-->
+    {% endblock %}
+
+{% block external_js %}
+    <script src="{{ url_for('static', 'js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', 'js/daterangepicker.js') }}"></script>
+    <script src="{{ url_for('static', 'js/map.js') }}"></script>
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+{% endblock %}

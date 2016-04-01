@@ -1,0 +1,178 @@
+{% extends 'template.html' %}
+{% set active_page = 'quickstart' %}
+
+{% block external_css %}
+<link href="{{ url_for('static', filename='css/daterangepicker.css') }}" rel="stylesheet">
+   {% endblock %}
+
+{% block body %}
+    <!--slider-->
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="{{ url_for('static', filename='img/slider/slider_1.jpg') }}">
+            </div>
+
+            <div class="item">
+              <img src="{{ url_for('static', filename='img/slider/slider_2.jpg') }}">
+            </div>
+
+            <div class="item">
+              <img src="{{ url_for('static', filename='img/slider/slider_3.jpg') }}">
+            </div>
+
+            <div class="item">
+              <img src="{{ url_for('static', filename='img/slider/slider_4.jpg') }}">
+            </div>
+
+            <div class="item">
+              <img src="{{ url_for('static', filename='img/slider/slider_5.jpg') }}">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--/slider-->
+
+    <!--quick search form-->
+    <div class="row">
+      <hr>
+      <form class="form-horizontal">
+        <div class="col-lg-5">
+         <label for="region" class="control-label">Region</label>
+          <select class="form-control" id="region" placeholder="Region">
+            <option>HK Island</option>
+            <option>Kowloon</option>
+            <option>NT</option>
+          </select>
+        </div>
+        <div class="col-lg-5">
+         <label for="region" class="control-label">Date Range</label>
+          <div class="input-group date" id="daterangepicker">
+            <input type="text" class="form-control" name="daterange"/>
+            <span class="input-group-addon" name="daterange">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-2">
+        <label>&emsp;</label>
+          <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Start Searching</strong></button>
+        </div>
+      </form>
+    </div>
+    <!--/quick search form-->
+
+    <!--other choice-->
+    <div class="row" style="margin-bottom: 20px;">
+      <hr>
+      <!--header-->
+      <div class="panel">
+        <div class="panel-heading text-center">
+          <svg class="glyph stroked map">
+            <use xlink:href="#stroked-map" />
+          </svg>Extraordinary Experience
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/hk-central-002_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>HK-Central-001</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/hk-causewaybay-001_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>HK-Causeway Bay-001</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/hk-causewaybay-003_2.png" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>hk-Causeway Bay-003</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/kln-mongkok-001_1.png" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>kLN-Mongkok-001</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/kln-mongkok-003_1.png" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>kLN-Mongkok-003</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hovereffect">
+          <img class="center-block" src="img/kln-tsimshatsui-001_1.png" height="200" width="300" style="margin-bottom: 30px;">
+          <a href="booking.html">
+            <div class="overlay">
+              <h2>KLN-Tsim Sha Tsui-001</h2>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel-footer text-center">
+        <a href="location.html">
+        <button class="btn btn-success btn-group" style="width: 400px;"><strong>Find Out More</strong></button>
+        </a>
+      </div>
+    </div>
+    <!--/other choice-->
+  {% endblock %}
+
+{% block external_js %}
+<script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/daterangepicker.js') }}"></script>
+{% endblock %}

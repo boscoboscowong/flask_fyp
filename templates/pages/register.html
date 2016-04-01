@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register - Online Advertisement Panel</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form role="form">
+          <h2>Please Sign Up &emsp;<small>It's free and always will be.</small></h2>
+          <hr class="colorgraph">
+          <div class="form-group">
+            <input type="text" name="company_name" id="company_name" class="form-control input-lg" placeholder="Company Name" tabindex="3">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+          </div>
+          <div class="form-group">
+            <input type="text" name="tel" id="tel" class="form-control input-lg" placeholder="Tel No" tabindex="3">
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-sm-3 col-md-3">
+              <span class="button-checkbox">
+                  <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                  <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                </span>
+            </div>
+            <div class="col-xs-8 col-sm-9 col-md-9">
+              By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+            </div>
+          </div>
+
+          <hr class="colorgraph">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7">
+            </div>
+            <div class="col-xs-12 col-md-6"><a href="login.html" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+          </div>
+          <div class="modal-body">
+            <p>You agree that you will pay for all products you purchase through the Services, and that Apple may charge your payment method for any products purchased and for any additional amounts (including any taxes and late fees, as applicable) that may be accrued by or in connection with your Account. YOU ARE RESPONSIBLE FOR THE TIMELY PAYMENT OF ALL FEES AND FOR PROVIDING APPLE WITH A VALID PAYMENT METHOD FOR PAYMENT OF ALL FEES. For details of how purchases are billed please visit http://support.apple.com/kb/HT5582.</p>
+            <p>Your total price will include the price of the product plus any applicable tax; such tax is based on the bill-to address and the tax rate in effect at the time you download the product.
+
+            </p>
+            <p>Prices for products offered via the Services may change at any time, and the Services do not provide price protection or refunds in the event of a price reduction or promotional offering.</p>
+            <p>If a product becomes unavailable following a transaction but prior to download, your sole remedy is a refund. If technical problems prevent or unreasonably delay delivery of your product, your exclusive and sole remedy is either replacement or refund of the price paid, as determined by Apple.</p>
+            <p>1-Click is a registered service mark of Amazon.com, Inc., used under license. 1-Click is a convenient feature that allows you to make a purchase from the Services with a single click of your mouse or other input device. When accessing the Services on your computer, 1-Click purchasing may be activated via the dialog that appears when you click a Buy button. (You may reset this selection at any time by clicking Reset Warnings in your Account information). When accessing the Services on your Apple-branded products running iOS such as an iPad, iPod touch, or iPhone (“iOS Device”), 1-Click is activated for each transaction by tapping the button showing the price of the product, which reveals the Buy button. When 1-Click is activated, clicking or tapping the Buy button starts the download immediately and completes your transaction without any further steps.</p>
+            <p>Gift Certificates, iTunes Cards and Codes, and Allowances are issued and managed by Apple Value Services, LLC (“Issuer”).</p>
+            <p>Gift Certificates, iTunes Cards and Codes, Content Codes, and Allowances, in addition to unused balances, are not redeemable for cash and cannot be returned for a cash refund (except as required by law); exchanged; resold; used to purchase Gifts, Gift Certificates, or iTunes Cards or Codes; used to provide Allowances; used for purchases on the Apple Online Store; or used in Apple Retail Stores. Unused balances are not transferable.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script>
+    ! function ($) {
+      $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+        $(this).find('em:first').toggleClass("glyphicon-minus");
+      });
+      $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+      if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+      if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    })
+
+    $(function () {
+      $('.button-checkbox').each(function () {
+
+        // Settings
+        var $widget = $(this),
+          $button = $widget.find('button'),
+          $checkbox = $widget.find('input:checkbox'),
+          color = $button.data('color'),
+          settings = {
+            on: {
+              icon: 'glyphicon glyphicon-check'
+            },
+            off: {
+              icon: 'glyphicon glyphicon-unchecked'
+            }
+          };
+
+        // Event Handlers
+        $button.on('click', function () {
+          $checkbox.prop('checked', !$checkbox.is(':checked'));
+          $checkbox.triggerHandler('change');
+          updateDisplay();
+        });
+        $checkbox.on('change', function () {
+          updateDisplay();
+        });
+
+        // Actions
+        function updateDisplay() {
+          var isChecked = $checkbox.is(':checked');
+
+          // Set the button's state
+          $button.data('state', (isChecked) ? "on" : "off");
+
+          // Set the button's icon
+          $button.find('.state-icon')
+            .removeClass()
+            .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+          // Update the button's color
+          if (isChecked) {
+            $button
+              .removeClass('btn-default')
+              .addClass('btn-' + color + ' active');
+          } else {
+            $button
+              .removeClass('btn-' + color + ' active')
+              .addClass('btn-default');
+          }
+        }
+
+        // Initialization
+        function init() {
+
+          updateDisplay();
+
+          // Inject the icon if applicable
+          if ($button.find('.state-icon').length == 0) {
+            $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
+          }
+        }
+        init();
+      });
+    });
+  </script>
+</body>
+
+</html>
