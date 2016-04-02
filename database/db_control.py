@@ -1,5 +1,6 @@
 from database import db_connect
 from database_class.panel import Panel
+from database_class.panel_source import Panel_source
 
 
 """panel detail in location.html"""
@@ -46,9 +47,5 @@ def list_all_image_of_panel(pid):
 
     panel_list =[]
     for row in db_connect.execute_select(select_query):
-        panel_list.append(Panel(row['pid'], row['name'], row['region'],
-                          row['location'], row['latitude'], row['longitude'],
-                          row['height'], row['width'], row['airtime_rate'],
-                          row['pedestrain_flow'], row['cap'], row['img_no'],
-                          row['path'], row['used']))
+        panel_list.append(Panel_source(row['sid'], row['pid'], row['img_no'], row['path'])
     return panel_list
