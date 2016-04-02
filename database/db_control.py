@@ -38,14 +38,14 @@ def get_panel_detail(pid):
                           row['path'], row['used']))
     return panel_list
 
-"""list all image of the panel in booking.html"""
-def list_all_image_of_panel(pid):
-    select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
-                   "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
-                   "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
-                   "WHERE panel_source.pid={}".format(pid)
 
-    panel_list =[]
+"""list all image of a panel in booking.html"""
+def list_all_image_of_panel(pid):
+    select_query = "SELECT panel_source.* FROM panel_source WHERE panel_source.pid = {}".format(pid)
+
+    panel_list = []
     for row in db_connect.execute_select(select_query):
-        panel_list.append(Panel_source(row['sid'], row['pid'], row['img_no'], row['path'])
+        panel_list.append(Panel_source(row['sid'], row['pid'], row['img_no'], row['path']))
+
     return panel_list
+

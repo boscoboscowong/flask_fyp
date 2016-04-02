@@ -10,7 +10,7 @@ app = Flask(__name__)
 def quickstart():
     return render_template('pages/quickstart.html',
                            title='Quickstart',
-                           )
+                           panel_list=db_control.get_panel_detail_by_region())
 
 @app.route('/quicksearch')
 def quicksearch():
@@ -28,13 +28,15 @@ def booking():
     pid = request.args.get('pid')
     return render_template('pages/booking.html',
                            title='Booking',
-                           panel_list=db_control.get_panel_detail(pid),
-                           panel_all_image=db_control.list_all_image_of_panel(pid))
+                           panel_list_by_pid=db_control.get_panel_detail(pid),
+                           panel_all_image=db_control.list_all_image_of_panel(pid),
+                           panel_other_choice=db_control.get_panel_detail_by_region())
 
 @app.route('/payment')
 def payment():
     return render_template('pages/payment.html',
-                           title='Payment')
+                           title='Payment',
+                           panel_list_by_id=db_control.get_panel_detail(pid))
 
 @app.route('/detail')
 def detail():

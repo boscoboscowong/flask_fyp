@@ -35,7 +35,7 @@
             <!-- id can be either HKI, KLN or NT -->
             <div class="col-md-4 {{ item.region }}" style="display: block;">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><a href="/booking?pid={{ item.pid }}">{{ item.name }}</a></div>
+                        <div class="panel-heading"><a href="/booking?pid={{ item.pid }}">{{ item.name }}</a></div>
                     <div class="panel-body">
                         <a href="/booking?pid={{ item.pid }}">
                             <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}"

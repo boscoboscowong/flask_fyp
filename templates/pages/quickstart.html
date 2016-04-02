@@ -10,13 +10,14 @@
     <div class="row">
       <div class="col-lg-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
           <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
+                {% set num = ['1', '2', '3', '4'] %}
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    {% for item in num %}
+                        <li data-target="#myCarousel" data-slide-to="{{ item }}"></li>
+                    {% endfor %}
           </ol>
 
           <!-- Wrapper for slides -->
@@ -90,81 +91,28 @@
       <hr>
       <!--header-->
       <div class="panel">
-        <div class="panel-heading text-center">
+        <div class="panel-heading">
           <svg class="glyph stroked map">
             <use xlink:href="#stroked-map" />
           </svg>Extraordinary Experience
         </div>
       </div>
 
+        {% for item in panel_list %}
       <div class="col-lg-4">
         <div class="hovereffect">
-          <img class="center-block" src="img/hk-central-002_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
+          <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200" width="300" style="margin-bottom: 30px;">
           <a href="booking.html">
             <div class="overlay">
-              <h2>HK-Central-001</h2>
+              <h2>{{ item.name }}</h2>
             </div>
           </a>
         </div>
       </div>
-
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="img/hk-causewaybay-001_1.jpg" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="booking.html">
-            <div class="overlay">
-              <h2>HK-Causeway Bay-001</h2>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="img/hk-causewaybay-003_2.png" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="booking.html">
-            <div class="overlay">
-              <h2>hk-Causeway Bay-003</h2>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="img/kln-mongkok-001_1.png" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="booking.html">
-            <div class="overlay">
-              <h2>kLN-Mongkok-001</h2>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="img/kln-mongkok-003_1.png" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="booking.html">
-            <div class="overlay">
-              <h2>kLN-Mongkok-003</h2>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="img/kln-tsimshatsui-001_1.png" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="booking.html">
-            <div class="overlay">
-              <h2>KLN-Tsim Sha Tsui-001</h2>
-            </div>
-          </a>
-        </div>
-      </div>
+        {% endfor %}
 
       <div class="panel-footer text-center">
-        <a href="location.html">
+        <a href="/location">
         <button class="btn btn-success btn-group" style="width: 400px;"><strong>Find Out More</strong></button>
         </a>
       </div>
