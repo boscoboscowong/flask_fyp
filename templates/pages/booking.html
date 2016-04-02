@@ -2,7 +2,7 @@
 {% set active_page='reserve' %}
 
 {% block external_css %}
-<link href="{{ url_for('static', 'css/daterangepicker.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/daterangepicker.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -23,34 +23,33 @@
             <div class="col-lg-12">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
+                    {% set num = ['1', '2', '3', '4'] %}
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                        <li data-target="#myCarousel" data-slide-to="3"></li>
-                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                        {% for item in num %}
+                        <li data-target="#myCarousel" data-slide-to="{{ item }}"></li>
+                        {% endfor %}
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="img/slider/slider_1.jpg">
+                            <img src="{{ url_for('static', filename='img/slider/slider_1.jpg') }}"/>
+                        </div>
+                        <div class="item">
+                            <img src="{{ url_for('static', filename='img/slider/slider_2.jpg') }}">
                         </div>
 
                         <div class="item">
-                            <img src="img/slider/slider_2.jpg">
+                            <img src="{{ url_for('static', filename='img/slider/slider_3.jpg') }}">
                         </div>
 
                         <div class="item">
-                            <img src="img/slider/slider_3.jpg">
+                            <img src="{{ url_for('static', filename='img/slider/slider_4.jpg') }}">
                         </div>
 
                         <div class="item">
-                            <img src="img/slider/slider_4.jpg">
-                        </div>
-
-                        <div class="item">
-                            <img src="img/slider/slider_5.jpg">
+                            <img src="{{ url_for('static', filename='img/slider/slider_5.jpg') }}">
                         </div>
                     </div>
 
@@ -79,7 +78,7 @@
                         <div class="input-group date" id="daterangepicker">
                             <input type="text" class="form-control" name="daterange" value="2016/01/01 - 2016/12/31" />
                             <span class="input-group-addon" name="daterange">
-<span class="glyphicon glyphicon-calendar"></span>
+                            <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                         </div>
                     </div>
@@ -101,6 +100,7 @@
             <!--/booking form-->
 
             <!--panel detail-->
+            {% for item in panel_list %}
             <div class="col-lg-8">
                 <br>
                 <div class="panel panel-info chat">
@@ -111,7 +111,7 @@
                     <div class="panel-body">
                         <ul>
                             <li class="clearfix">
-                                <img class="center-block" src="img/hk-central-003_1.png" height="200" width="300">
+                                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200" width="300">
                             </li>
 
                             <li class="clearfix">
@@ -119,53 +119,56 @@
                                     <table class="table table-striped">
                                         <tr>
                                             <td style="font-weight:bold">Name</td>
-                                            <td>HK-Central-003</td>
+                                            <td>{{ item.name }}</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Region</td>
-                                            <td>HK</td>
+                                            <td>{{ item.region }}</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Location</td>
-                                            <td>Infinitus Plaza, 199 Des Voeus Road, Central</td>
+                                            <td>{{ item.location }}</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Height</td>
-                                            <td>11m</td>
+                                            <td>{{ item.height }}m</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Width</td>
-                                            <td>6.5m</td>
+                                            <td>{{ item.width }}m</td>
                                         </tr>
                                         <td style="font-weight:bold">Opening Hours</td>
                                         <td>08:00 - 22:00 &emsp;&emsp;&emsp; Mon - Sun</td>
                                         <tr>
                                             <td style="font-weight:bold">Airtime Rate (daily)</td>
-                                            <td>HKD 4,000</td>
+                                            <td>HKD {{ item.airtime_rate }}</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Pedestrain Flow (daily)</td>
-                                            <td>220,000</td>
+                                            <td>{{ item.pedestrain_flow }}</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Capacity</td>
-                                            <td>5</td>
+                                            <td>{{ item.cap }}</td>
                                         </tr>
                                         <td style="font-weight:bold">Used</td>
-                                        <td>1</td>
+                                        <td>{{ item.used }}</td>
                                     </table>
                                 </div>
                             </li>
 
                             <li class="clearfix">
-                                <img src="img/hk-central-003_1.png" height="150" width="250">
-                                <img src="img/hk-central-003_2.png" height="150" width="250">
+                                {% for image in panel_all_image %}
+                                <img src="{{ url_for('static', filename='img/' + item.path) }}" height="150" width="250">
+                                <img src="{{ url_for('static', filename='img/' + item.path) }}" height="150" width="250">
+                                    {% endfor %}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+    {% endfor %}
         <!--/first row-->
 
         <!--map-->
@@ -226,9 +229,9 @@
     {% endblock %}
 
 {% block external_js %}
-    <script src="{{ url_for('static', 'js/moment.min.js') }}"></script>
-    <script src="{{ url_for('static', 'js/daterangepicker.js') }}"></script>
-    <script src="{{ url_for('static', 'js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/daterangepicker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 {% endblock %}

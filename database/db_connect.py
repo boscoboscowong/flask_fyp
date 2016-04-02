@@ -28,7 +28,7 @@ def execute_select(query):
         conn = mysql.connector.connect(user='root', password='', database='fyp')
         cursor = conn.cursor(dictionary=True)
         cursor.execute(query)
-        rows = cursor.fetcahll()
+        rows = cursor.fetchall()
         conn.close()
         return rows
 

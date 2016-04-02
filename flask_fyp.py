@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from database import db_connect
 from database import db_control
 
@@ -20,12 +20,16 @@ def quicksearch():
 @app.route('/location')
 def location():
     return render_template('pages/location.html',
-                           title='Location')
+                           title='Location',
+                           panel_list=db_control.get_panel_detail_by_region())
 
-@app.route('/booking')
+@app.route('/booking', methods=['GET'])
 def booking():
+    pid = request.args.get('pid')
     return render_template('pages/booking.html',
-                           title='Booking')
+                           title='Booking',
+                           panel_list=db_control.get_panel_detail(pid),
+                           panel_all_image=db_control.list_all_image_of_panel(pid))
 
 @app.route('/payment')
 def payment():
