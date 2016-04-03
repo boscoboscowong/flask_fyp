@@ -1,9 +1,6 @@
 {% extends  'template.html' %}
 {% set active_page='reserve' %}
 
-{% block external_css %}
-    <link href="{{ url_for('static', filename='css/daterangepicker.css') }}" rel="stylesheet">
-{% endblock %}
 
 {% block body %}
     <!--progress-bar-->
@@ -72,35 +69,43 @@
     <div class="row">
         <!--booking form-->
         <div class="col-lg-4">
-            <form style="outline:solid; outline-width: 1.5px; outline-color:#b99696; padding: 0px 5px 5px 5px">
-                <br>
+            <form style="outline:solid; outline-width: 1.5px; outline-color:#b99696; padding: 0px 5px 5px 5px" action="payment" method="post" enctype="multipart/form-data">
                 <h2 class="text-center">Booking Form</h2>
-                <hr>
                 <br>
                 <br>
+                <input type="hidden" name="pid" value="{{ pid }}"/>
                 <div class="form-group" style="padding: 5px 0px 10px">
-                    <label>Date Range</label>
-                    <div class="input-group date" id="daterangepicker">
-                        <input type="text" class="form-control" name="daterange" value="2016/01/01 - 2016/12/31"/>
-                            <span class="input-group-addon" name="daterange">
+                    <label>Date From</label>
+                    <div class="input-group date">
+                        <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-02"/>
+                            <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>
                     </div>
                 </div>
-                <br><br>
-                <div class="form-group" style="padding: 5px 0px 10px">
+                <br>
+                 <div class="form-group" style="padding: 5px 0px 10px">
+                    <label>Date To</label>
+                    <div class="input-group date">
+                        <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-03"/>
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group" id="type" style="padding: 5px 0px 10px">
                     <label>Source Type</label>
-                    <select class="form-control">
+                    <select class="form-control"  name="type">
                         <option>Image</option>
                         <option>Video</option>
                     </select>
                 </div>
-                <br><br>
+                <br>
                 <div class="form-group" style="padding: 5px 0px 30px">
                     <label>File Input</label>
-                    <input type="file" id="file_upload"/>
+                    <input type="file" name="file" id="file"/>
                 </div>
-                <br>
                 <hr>
                 <button type="submit" href="payment.html" class="btn btn-danger btn-group-lg btn-group-justified"
                         style="font-weight: bold; font-size: 18px; padding: 0px 0px 10px">Request to Book
@@ -233,7 +238,6 @@
 
 {% block external_js %}
     <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/daterangepicker.js') }}"></script>
 
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     {% for item in panel_list_by_pid %}

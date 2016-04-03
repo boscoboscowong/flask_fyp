@@ -10,7 +10,9 @@ def execute_insert(query):
 
     try:
         conn = mysql.connector.connect(user='root', password='', database='fyp')
-        conn.cursor.execute(query)
+        conn.autocommit = True
+        cursor = conn.cursor()
+        cursor.execute(query)
         conn.close()
         print('Connection closed')
 

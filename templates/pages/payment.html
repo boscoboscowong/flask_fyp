@@ -2,259 +2,272 @@
 {% set active_page = 'reserve' %}
 
 {% block external_css %}
-<link href="{{ url_for('static', filename='css/form.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/form.css') }}" rel="stylesheet">
 {% endblock %}
 
-    {% block body %}
+{% block body %}
     <!--progress-bar-->
     <div class="row">
-      <div class="col-lg-12">
-        <h3>booking</h3>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          </div>
+        <div class="col-lg-12">
+            <h3>booking</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
+                     aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <!--/progress-bar-->
 
     <div class="row">
-      <!--payment side-->
-      <div class="col-lg-6">
-        <!--discount panel-->
-        <div class="well">
-          <div class="row">
-            <div class="text-center">
-              <h1>Discount Offering</h1>
+        <!--payment side-->
+        <div class="col-lg-6">
+            <!--discount panel-->
+            <div class="well">
+                <div class="row">
+                    <div class="text-center">
+                        <h1>Discount Offering</h1>
+                    </div>
+
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th class="text-center">Discount</th>
+                            <th></th>
+                            <th class="text-center">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="col-md-9"><em>Baked Rodopa Sheep Feta</em>
+                            </td>
+                            <td class="col-md-1 text-center">$13</td>
+                            <td></td>
+                            <td class="col-md-1 text-center">$26</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9"><em>Lebanese Cabbage Salad</em>
+                            </td>
+                            <td class="col-md-1 text-center">$8</td>
+                            <td></td>
+                            <td class="col-md-1 text-center">$8</td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9"><em>Baked Tart with Thyme and Garlic</em>
+                            </td>
+                            <td class="col-md-1 text-center">$16</td>
+                            <td></td>
+                            <td class="col-md-1 text-center">$48</td>
+                        </tr>
+                        <tr>
+                            <td>  </td>
+                            <td class="text-right">
+                                <p>
+                                    <strong>Subtotal: </strong>
+                                </p>
+                                <p>
+                                    <strong>Admin.Fee: </strong>
+                                </p>
+                            </td>
+                            <td></td>
+                            <td class="text-center">
+                                <p>
+                                    <strong>$6.94</strong>
+                                </p>
+                                <p>
+                                    <strong>$6.94</strong>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>  </td>
+                            <td class="text-right">
+                                <h4><strong>Total: </strong></h4></td>
+                            <td></td>
+                            <td class="text-center text-danger">
+                                <h4><strong>$31.53</strong></h4></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!--/discount panel-->
 
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Description</th>
-                  <th class="text-center">Discount</th>
-                  <th></th>
-                  <th class="text-center">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-md-9"><em>Baked Rodopa Sheep Feta</em>
-                  </td>
-                  <td class="col-md-1 text-center">$13</td>
-                  <td></td>
-                  <td class="col-md-1 text-center">$26</td>
-                </tr>
-                <tr>
-                  <td class="col-md-9"><em>Lebanese Cabbage Salad</em>
-                  </td>
-                  <td class="col-md-1 text-center">$8</td>
-                  <td></td>
-                  <td class="col-md-1 text-center">$8</td>
-                </tr>
-                <tr>
-                  <td class="col-md-9"><em>Baked Tart with Thyme and Garlic</em>
-                  </td>
-                  <td class="col-md-1 text-center">$16</td>
-                  <td></td>
-                  <td class="col-md-1 text-center">$48</td>
-                </tr>
-                <tr>
-                  <td>   </td>
-                  <td class="text-right">
-                    <p>
-                      <strong>Subtotal: </strong>
-                    </p>
-                    <p>
-                      <strong>Admin.Fee: </strong>
-                    </p>
-                  </td>
-                  <td></td>
-                  <td class="text-center">
-                    <p>
-                      <strong>$6.94</strong>
-                    </p>
-                    <p>
-                      <strong>$6.94</strong>
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>   </td>
-                  <td class="text-right">
-                    <h4><strong>Total: </strong></h4></td>
-                  <td></td>
-                  <td class="text-center text-danger">
-                    <h4><strong>$31.53</strong></h4></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+            <!--payment panel-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                        <svg class="glyph stroked key ">
+                            <use xlink:href="#stroked-key"/>
+                        </svg>
+                        Payment Details
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="payment-form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="cardNumber">CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="cardNumber"
+                                               placeholder="Valid Card Number" required autofocus data-stripe="number"/>
+                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <div class="col-xs-12 col-lg-12 pl-ziro">
+                                        <label for="expMonth">EXPIRATION DATE</label>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" name="expMonth" placeholder="MM"
+                                               required data-stripe="exp_month"/>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" name="expYear" placeholder="YY" required
+                                               data-stripe="exp_year"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cvCode">CV CODE</label>
+                                    <input type="password" class="form-control" name="cvCode" placeholder="CV" required
+                                           data-stripe="cvc"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <br>
+                                    <label for="couponCode">COUPON CODE</label>
+                                    <input type="text" class="form-control" name="couponCode"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <br><br>
+                                <button class="btn btn-success btn-lg btn-block" type="submit">Submit Payment</button>
+                            </div>
+                        </div>
+                        <div class="row" style="display:none;">
+                            <div class="col-xs-12">
+                                <p class="payment-errors"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- CREDIT CARD FORM ENDS HERE -->
         </div>
-        <!--/discount panel-->
+        <!--/payment side-->
 
-
-        <!--payment panel-->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-            <img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
-            <svg class="glyph stroked key "><use xlink:href="#stroked-key"/>
-            </svg>Payment Details</h3>
-          </div>
-          <div class="panel-body">
-            <form role="form" id="payment-form">
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="form-group">
-                    <label for="cardNumber">CARD NUMBER</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
-                      <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-                    </div>
-                    <br>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-7 col-md-7">
-                  <div class="form-group">
-                    <div class="col-xs-12 col-lg-12 pl-ziro">
-                      <label for="expMonth">EXPIRATION DATE</label>
-                    </div>
-                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                      <input type="text" class="form-control" name="expMonth" placeholder="MM" required data-stripe="exp_month" />
-                    </div>
-                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                      <input type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-5 col-md-5 pull-right">
-                  <div class="form-group">
-                    <label for="cvCode">CV CODE</label>
-                    <input type="password" class="form-control" name="cvCode" placeholder="CV" required data-stripe="cvc" />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  <div class="form-group">
-                   <br>
-                    <label for="couponCode">COUPON CODE</label>
-                    <input type="text" class="form-control" name="couponCode" />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                 <br><br>
-                  <button class="btn btn-success btn-lg btn-block" type="submit">Submit Payment</button>
-                </div>
-              </div>
-              <div class="row" style="display:none;">
-                <div class="col-xs-12">
-                  <p class="payment-errors"></p>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <!-- CREDIT CARD FORM ENDS HERE -->
-      </div>
-      <!--/payment side-->
-
-     <!--detail side-->
-      <div class="col-lg-6">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <svg class="glyph stroked clipboard with paper">
-              <use xlink:href="#stroked-clipboard-with-paper" />
-            </svg>Booking Details</div>
+        <!--detail side-->
+        {% for item in panel_list_by_pid %}
+            <div class="col-lg-6">
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <svg class="glyph stroked clipboard with paper">
+                    <use xlink:href="#stroked-clipboard-with-paper"/>
+                </svg>
+                Booking Details
+            </div>
 
             <div class="panel-body">
             <!--img-->
-             <div class="row">
-               <img class="center-block" src="img/hk-central-003_1.png" height="200" weight="300">
-               <hr>
-             </div>
-              <!--/img-->
+            <div class="row">
+                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200"
+                     weight="300">
+                <hr>
+            </div>
+            <!--/img-->
 
-              <!--panel details-->
-              <div class="row">
-                  <div class="table-responsive">
+            <!--panel details-->
+            <div class="row">
+                <div class="table-responsive">
                     <h4>&emsp;Panel Details</h4>
                     <table class="table table-striped">
-                      <tr>
-                        <td style="font-weight:bold;">Name</td>
-                        <td>HK-Central-003</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight:bold">Region</td>
-                        <td>HK</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight:bold">Location</td>
-                        <td>Infinitus Plaza, 199 Des Voeus Road, Central</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight:bold">Height</td>
-                        <td>11m</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight:bold">Width</td>
-                        <td>6.5m</td>
-                      </tr>
-                      <td style="font-weight:bold">Opening Hours</td>
-                      <td>08:00 - 22:00 &emsp;&emsp;&emsp; Mon - Sun</td>
-                      <tr>
-                        <td style="font-weight:bold">Airtime Rate (daily)</td>
-                        <td>HKD 4,000</td>
-                      </tr>
-                      <tr>
-                        <td style="font-weight:bold">Pedestrain Flow (daily)</td>
-                        <td>220,000</td>
-                      </tr>
+                        <tr>
+                            <td style="font-weight:bold;">Name</td>
+                            <td>{{ item.name }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Region</td>
+                            <td>{{ item.region }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Location</td>
+                            <td>{{ item.location }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Height</td>
+                            <td>{{ item.height }} m</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Width</td>
+                            <td>{{ item.width }} m</td>
+                        </tr>
+                        <td style="font-weight:bold">Opening Hours</td>
+                        <td>08:00 - 22:00 &emsp;&emsp;&emsp; Mon - Sun</td>
+                        <tr>
+                            <td style="font-weight:bold">Airtime Rate (daily)</td>
+                            <td>HKD {{ item.airtime_rate }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Pedestrain Flow (daily)</td>
+                            <td>{{ item.pedestrain_flow }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Capacity</td>
+                            <td>{{ item.cap }}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">Used</td>
+                            <td>{{ item.used }}</td>
+                        </tr>
                     </table>
-                  </div>
-              </div>
-              <!--panel details-->
-
-              <!--booking detail-->
-              <div class="row">
-               <hr>
-                <div class="table-responsive">
-                  <h4>&emsp;Booking Details</h4>
-                  <table class="table table-striped">
-                    <tr>
-                      <td style="font-weight:bold">Date From</td>
-                      <td>25/11/2015</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold">Date To</td>
-                      <td>04/12/2015</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold;">Type</td>
-                      <td>Video</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold;">File Size</td>
-                      <td>7.6MB</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: bold;">File Format</td>
-                      <td>mp4</td>
-                    </tr>
-                  </table>
-                  <hr>
                 </div>
-              </div>
-              <!--/booking detail-->
             </div>
-          </div>
+        {% endfor %}
+        <!--panel details-->
+
+        <!--booking detail-->
+        <div class="row">
+            <hr>
+            <div class="table-responsive">
+                <h4>&emsp;Booking Details</h4>
+                <table class="table table-striped">
+                    <tr>
+                        <td style="font-weight:bold">Date From</td>
+                        <td>{{ session['date_from'] }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold">Date To</td>
+                        <td>{{ session['date_to'] }}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Type</td>
+                        <td>{{ session['type'] }}</td>
+                    </tr>
+                </table>
+                <hr>
+            </div>
+        </div>
+        <!--/booking detail-->
+        </div>
+        </div>
         </div>
         <!--/detail side-->
-      </div>
+    </div>
     <!--/row-->
-  {% endblock %}
+{% endblock %}
