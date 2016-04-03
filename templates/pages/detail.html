@@ -2,7 +2,7 @@
 {% set active_page = 'detail' %}
 
 {% block external_css %}
-<link href="{{ url_for('static', 'css/bootstrap-table.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/bootstrap-table.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -31,5 +31,5 @@
 	{% endblock %}
 
 {% block external_js %}
-<script src="{{ url_for('static', 'js/bootstrap-table.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap-table.js') }}"></script>
 {% endblock %}

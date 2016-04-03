@@ -32,7 +32,7 @@
             <a class="navbar-brand" href="#"><span>Advertisement</span>Panel</a>
             <!--brand-->
 
-            <!--user menu-->
+            <!--user drop down list-->
             <ul class="user-menu">
                 <li class="dropdown pull-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -43,21 +43,16 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="/profile">
-                                <svg class="glyph stroked male-user">
-                                    <use xlink:href="#stroked-male-user"></use>
-                                </svg>
-                                Profile</a>
+                                <svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Profile</a>
                         </li>
                         <li>
                             <a href="/logout">
-                                <svg class="glyph stroked cancel">
-                                    <use xlink:href="#stroked-cancel"></use>
-                                </svg>
-                                Logout</a>
+                                <svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg>Logout</a>
                         </li>
                     </ul>
                 </li>
             </ul>
+            <!--/user drop down list-->
         </div>
     </div>
     <!-- /.container-fluid -->
@@ -75,15 +70,14 @@
 
     <ul class="nav menu">
         {% for id, href, svg, xlink, a in sidebar %}
-
-        <li {% if id==active_page %} class="active" {% endif %}>
-        <a href="{{ href|e }}">
-            <svg class="{{ svg|e }}">
-                <use xlink:href="{{ xlink|e }}"></use>
-            </svg>
-            {{ a|e }}
-        </a>
-        </li>
+            <li {% if id==active_page %} class="active" {% endif %}>
+                <a href="{{ href|e }}">
+                    <svg class="{{ svg|e }}">
+                        <use xlink:href="{{ xlink|e }}"></use>
+                    </svg>
+                    {{ a|e }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 </div>
@@ -92,21 +86,17 @@
 <!--main-->
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-    <!--inner-navbar-->
+    <!--inner-bar-->
     <div class="row">
         <ol class="breadcrumb">
             <li>
-                <a href="/">
-                    <svg class="glyph stroked home">
-                        <use xlink:href="#stroked-home"></use>
-                    </svg>
-                </a>
+                <a href="/quickstart"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a>
             </li>
             <li>
-                <a href="quickstart.html">{{ title }}</a></li>
+                <a href="/quickstart">{{ title }}</a></li>
         </ol>
     </div>
-    <!--/inner-navbar-->
+    <!--/inner-bar-->
 
     <h3>{{ title }}</h3>
 

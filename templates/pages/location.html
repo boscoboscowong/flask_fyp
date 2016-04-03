@@ -26,16 +26,13 @@
     </div>
     <!--location tab-->
 
-    <!--first-row-->
+    <!--panel list-->
     <div class="row">
-        <br>
-        <br>
-
+        <hr>
         {% for item in panel_list %}
-            <!-- id can be either HKI, KLN or NT -->
             <div class="col-md-4 {{ item.region }}" style="display: block;">
                 <div class="panel panel-info">
-                        <div class="panel-heading"><a href="/booking?pid={{ item.pid }}">{{ item.name }}</a></div>
+                    <div class="panel-heading"><a href="/booking?pid={{ item.pid }}">{{ item.name }}</a></div>
                     <div class="panel-body">
                         <a href="/booking?pid={{ item.pid }}">
                             <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}"
@@ -82,31 +79,8 @@
                 </div>
             </div>
         {% endfor %}
-        <!-- /.first-row -->
-
-        <!--pagination-->
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <nav>
-                    <ul class="pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!--/.pagination-->
     </div>
+    <!--panel list-->
 {% endblock %}
 
 {% block external_js %}

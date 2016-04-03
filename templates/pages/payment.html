@@ -9,7 +9,6 @@
     <!--progress-bar-->
     <div class="row">
         <div class="col-lg-12">
-            <h3>booking</h3>
             <div class="progress">
                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
                      aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -176,18 +175,12 @@
         {% for item in panel_list_by_pid %}
             <div class="col-lg-6">
             <div class="panel panel-info">
-            <div class="panel-heading">
-                <svg class="glyph stroked clipboard with paper">
-                    <use xlink:href="#stroked-clipboard-with-paper"/>
-                </svg>
-                Booking Details
-            </div>
+            <div class="panel-heading"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Booking Details</div>
 
             <div class="panel-body">
             <!--img-->
             <div class="row">
-                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200"
-                     weight="300">
+                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200" weight="300">
                 <hr>
             </div>
             <!--/img-->
@@ -232,7 +225,7 @@
                             <td>{{ item.cap }}</td>
                         </tr>
                         <tr>
-                            <td style="font-weight:bold">Used</td>
+                            <td style="font-weight:bold">Number of Booking</td>
                             <td>{{ item.used }}</td>
                         </tr>
                     </table>

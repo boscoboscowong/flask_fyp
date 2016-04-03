@@ -1,12 +1,10 @@
 {% extends  'template.html' %}
 {% set active_page='reserve' %}
 
-
 {% block body %}
     <!--progress-bar-->
     <div class="row">
         <div class="col-lg-12">
-            <h3>booking</h3>
             <div class="progress">
                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45"
                      aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -34,21 +32,13 @@
                     <div class="item active">
                         <img src="{{ url_for('static', filename='img/slider/slider_1.jpg') }}"/>
                     </div>
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='img/slider/slider_2.jpg') }}">
-                    </div>
 
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='img/slider/slider_3.jpg') }}">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='img/slider/slider_4.jpg') }}">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='img/slider/slider_5.jpg') }}">
-                    </div>
+                    {% set num = ['2', '3', '4', '5'] %}
+                    {% for item in num %}
+                        <div class="item">
+                            <img src="{{ url_for('static', filename='img/slider/slider_' + item + '.jpg') }}">
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <!-- Left and right controls -->
@@ -69,44 +59,46 @@
     <div class="row">
         <!--booking form-->
         <div class="col-lg-4">
-            <form style="outline:solid; outline-width: 1.5px; outline-color:#b99696; padding: 0px 5px 5px 5px" action="payment" method="post" enctype="multipart/form-data">
+            <form style="outline:solid; outline-width: 1.5px; outline-color:#b99696; padding: 0px 5px 5px 5px"
+                  action="payment" method="post" enctype="multipart/form-data">
                 <h2 class="text-center">Booking Form</h2>
                 <br>
                 <br>
                 <input type="hidden" name="pid" value="{{ pid }}"/>
+
                 <div class="form-group" style="padding: 5px 0px 10px">
                     <label>Date From</label>
                     <div class="input-group date">
                         <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-02"/>
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
                 </div>
                 <br>
-                 <div class="form-group" style="padding: 5px 0px 10px">
+
+                <div class="form-group" style="padding: 5px 0px 10px">
                     <label>Date To</label>
                     <div class="input-group date">
                         <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-03"/>
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
                 </div>
                 <br>
+
                 <div class="form-group" id="type" style="padding: 5px 0px 10px">
                     <label>Source Type</label>
-                    <select class="form-control"  name="type">
+                    <select class="form-control" name="type">
                         <option>Image</option>
                         <option>Video</option>
                     </select>
                 </div>
                 <br>
+
                 <div class="form-group" style="padding: 5px 0px 30px">
                     <label>File Input</label>
                     <input type="file" name="file" id="file"/>
                 </div>
                 <hr>
+
                 <button type="submit" href="payment.html" class="btn btn-danger btn-group-lg btn-group-justified"
                         style="font-weight: bold; font-size: 18px; padding: 0px 0px 10px">Request to Book
                 </button>
@@ -128,8 +120,7 @@
                     <div class="panel-body">
                         <ul>
                             <li class="clearfix">
-                                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}"
-                                     height="200" width="300">
+                                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200" width="300">
                             </li>
 
                             <li class="clearfix">
@@ -149,11 +140,11 @@
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Height</td>
-                                            <td>{{ item.height }}m</td>
+                                            <td>{{ item.height }} m</td>
                                         </tr>
                                         <tr>
                                             <td style="font-weight:bold">Width</td>
-                                            <td>{{ item.width }}m</td>
+                                            <td>{{ item.width }} m</td>
                                         </tr>
                                         <td style="font-weight:bold">Opening Hours</td>
                                         <td>08:00 - 22:00 &emsp;&emsp;&emsp; Mon - Sun</td>
@@ -169,7 +160,7 @@
                                             <td style="font-weight:bold">Capacity</td>
                                             <td>{{ item.cap }}</td>
                                         </tr>
-                                        <td style="font-weight:bold">Used</td>
+                                        <td style="font-weight:bold">Number of Booking</td>
                                         <td>{{ item.used }}</td>
                                     </table>
                                 </div>
@@ -180,9 +171,7 @@
 
                 <!--all image of the panel-->
                 <div class="panel panel-info">
-                    <div class="panel-heading">
-                        Images
-                    </div>
+                    <div class="panel-heading"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg>Images</div>
                     <div class="panel-body">
                         {% for image in panel_all_image %}
                             <img src="{{ url_for('static', filename='img/' + image.path) }}" height="150" width="250">
@@ -190,38 +179,34 @@
                     </div>
                 </div>
             </div>
-            </div>
-            {% endfor %}
-            <!--/first row-->
+        {% endfor %}
+    </div>
+    <!--/first row-->
 
-            <!--map-->
-            <div class="row">
-                <hr>
-                <div class="col-lg-12">
-                    <div id="map-container"></div>
-                    <br>
-                    <hr>
-                </div>
-            </div>
-            <!--/map-->
+    <!--map-->
+    <div class="row">
+        <hr>
+        <div class="col-lg-12">
+            <div id="map-container"></div>
+            <br>
+        </div>
+    </div>
+    <!--/map-->
 
-             <!--other choice-->
-        <div class="row" style="margin-bottom: 20px;">
-            <hr>
-            <!--header-->
-            <div class="panel">
-                <div class="panel-heading">
-                    <svg class="glyph stroked map">
-                        <use xlink:href="#stroked-map" />
-                    </svg>Other Choices
-                </div>
-            </div>
+    <!--other choice-->
+    <div class="row" style="margin-bottom: 20px;">
+        <hr>
+        <!--header-->
+        <div class="panel">
+            <div class="panel-heading"><svg class="glyph stroked map"><use xlink:href="#stroked-map"/></svg>Other Choices</div>
+        </div>
 
-    {% for choice in panel_other_choice %}
+        {% for choice in panel_other_choice %}
             <div class="col-lg-4">
                 <div class="hovereffect">
-                    <img class="center-block" src="{{ url_for('static', filename='img/' + choice.path) }}" height="200" width="300" style="margin-bottom: 30px;">
-                    <a href="booking.html">
+                    <img class="center-block" src="{{ url_for('static', filename='img/' + choice.path) }}" height="200"
+                         width="300" style="margin-bottom: 30px;">
+                    <a href="/location">
                         <div class="overlay">
                             <h2>{{ choice.name }}</h2>
                         </div>
@@ -229,11 +214,9 @@
                 </div>
             </div>
         {% endfor %}
-        </div>
-        <!--/other choice-->
-
+    </div>
+    <!--/other choice-->
 {% endblock %}
-
 
 
 {% block external_js %}
