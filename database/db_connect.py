@@ -37,3 +37,19 @@ def execute_select(query):
     except Error as e:
         print(e)
         print('Cannot connect to database')
+
+
+def verify_user_login(query):
+
+    try:
+        conn = mysql.connector.connect(user='root', password='', database='fyp')
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(query)
+        rows = cursor.fetchone()
+        print rows
+        conn.close()
+        return rows
+
+    except Error as e:
+        print(e)
+        print('Cannot connect to database')

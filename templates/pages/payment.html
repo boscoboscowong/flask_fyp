@@ -18,15 +18,18 @@
     </div>
     <!--/progress-bar-->
 
-    <div class="row">
         <!--payment side-->
         <div class="col-lg-6">
-            <!--discount panel-->
-            <div class="well">
-                <div class="row">
-                    <div class="text-center">
-                        <h1>Discount Offering</h1>
+            <!--demo-->
+            <div class="panel pabel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><svg class="glyph stroked film"><use xlink:href="#stroked-film"/></svg></h3>
                     </div>
+                </div>
+
+            <!--discount panel-->
+            <div class="panel panel-default">
+                    <div class="panel-heading"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>Discount Offering</div>
 
                     <table class="table table-hover">
                         <thead>
@@ -89,10 +92,8 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
             </div>
             <!--/discount panel-->
-
 
             <!--payment panel-->
             <div class="panel panel-default">
@@ -106,7 +107,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" id="payment-form">
+                    <form role="form" id="payment-form" action="confirm">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -180,7 +181,7 @@
             <div class="panel-body">
             <!--img-->
             <div class="row">
-                <img class="center-block" src="{{ url_for('static', filename='img/' + item.path) }}" height="200" weight="300">
+                <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}" height="200" weight="300">
                 <hr>
             </div>
             <!--/img-->
@@ -229,6 +230,10 @@
                             <td>{{ item.used }}</td>
                         </tr>
                     </table>
+                    <br>
+                    {% for image in panel_all_image %}
+                        <img src="{{ url_for('static', filename='img/' + image.panel_path) }}" height="150" width="250">
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}
@@ -237,6 +242,7 @@
         <!--booking detail-->
         <div class="row">
             <hr>
+            <br>
             <div class="table-responsive">
                 <h4>&emsp;Booking Details</h4>
                 <table class="table table-striped">

@@ -17,15 +17,14 @@ def login():
 
 @app.route('/checking', methods=['POST'])
 def check():
-    if 'username' in session:
-        return redirect(url_for('quickstart'))
-
     if request.method == 'POST':
         username_form = request.form['username']
         pwd_form = request.form['pwd']
+        row = db_control.check_user_login(username_form, pwd_form)
 
-        if db_control.check_user_login(username_form, pwd_form)[0]:
+        if row['num'] == 1:
             session['username'] = request.form['username']
+            session['uid'] = db_control.get_user_uid(session['username'])
             return redirect(url_for('quickstart'))
 
     return redirect(url_for('login'))
@@ -34,7 +33,7 @@ def check():
 @app.route('/logout')
 def logout():
     session.pop('username', None)
-    return render_template('pages/login.html')
+    return redirect(url_for('login'))
 
 
 @app.route('/quickstart')
@@ -88,19 +87,29 @@ def payment():
 
     if request.method == 'POST':
         pid = request.form['pid']
+        session['pid'] = pid
         session['date_from'] = request.form['date_from']
         session['date_to'] = request.form['date_to']
-        session['type'] = request.form['type']
+        session['file_type'] = request.form['file_type']
 
         prefix_path = 'C:\\PyCharm\\flask_fyp\\static\\file_source'
 
         f = request.files['file']
-        file_source = os.path.join(prefix_path, secure_filename(f.filename))
-        session['file_source'] = f.save(file_source)
+        file_path = os.path.join(prefix_path, secure_filename(f.filename))
+        session['file_path'] = f.save(file_path)
+
 
         return render_template('pages/payment.html',
                                title='Payment',
-                               panel_list_by_pid=db_control.get_panel_detail(pid))
+                               panel_list_by_pid=db_control.get_panel_detail(pid),
+                               panel_all_image=db_control.list_all_image_of_panel(pid))
+
+@app.route('/confirm')
+def confirm():
+    db_control.insert_booking_detail(session['pid'], session['uid'], session['date_from'], session['date_to'])
+    session['bid'] = db_control.get_booking_bid(session['pid'], session['uid'][0]['uid'])
+    db_control.insert_file_source(session['bid'], session['file_type'], session['file_path'])
+    return redirect(url_for('quickstart'))
 
 @app.route('/detail')
 def detail():
@@ -138,7 +147,8 @@ def profile():
         abort(403)
 
     return render_template('pages/profile.html',
-                           title='Profile')
+                           title='Profile',
+                           user_profile=db_control.get_user_detail(session['username']))
 
 
 if __name__ == '__main__':
