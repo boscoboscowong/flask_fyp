@@ -16,7 +16,6 @@ def check_user_login(username, pwd):
 def get_user_uid(username):
     select_query = "SELECT login.uid FROM login " \
                    "WHERE username='{}'".format(username)
-    print select_query
     return db_connect.execute_select(select_query)
 
 
@@ -44,7 +43,7 @@ def get_panel_detail(pid):
                    "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
                    "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
                    "WHERE panel_source.img_no='1'" \
-                   "AND panel.pid={}".format(pid)
+                   "AND panel.pid='{}'".format(pid)
 
     panel_list = []
     for row in db_connect.execute_select(select_query):
@@ -58,7 +57,7 @@ def get_panel_detail(pid):
 
 """list all image of a panel in booking.html"""
 def list_all_image_of_panel(pid):
-    select_query = "SELECT panel_source.* FROM panel_source WHERE panel_source.pid = {}".format(pid)
+    select_query = "SELECT panel_source.* FROM panel_source WHERE panel_source.pid = '{}'".format(pid)
 
     panel_list = []
     for row in db_connect.execute_select(select_query):
@@ -67,27 +66,12 @@ def list_all_image_of_panel(pid):
     return panel_list
 
 
-"""upload booking in pyament.html"""
-def insert_booking_detail(pid, uid, date_from, date_to):
+"""upload booking detail and file_source in pyament.html"""
+def insert_booking_detail_and_file_source(pid, uid, date_from, date_to, file_type, file_path):
     insert_query = "INSERT INTO booking (pid, uid, date_from, date_to) " \
-                   "VALUE ('{}', '{}', '{}', '{}')".format(pid, uid, date_from, date_to)
-    print insert_query
-    return db_connect.execute_insert(insert_query)
-
-
-"""bid in payment.html"""
-def get_booking_bid(pid, uid):
-    select_query = "SELECT booking.bid FROM booking " \
-                   "WHERE booking.pid={} " \
-                   "AND  booking.uid={}".format(pid, uid)
-    print select_query
-    return db_connect.execute_select(select_query)
-
-
-"""upload file source in payment.html"""
-def insert_file_source(bid, file_type, file_path):
-    insert_query = "INSERT INTO file_source (bid, file_type, file_path) " \
-                   "VALUE('{}', '{}', '{}')".format(bid, file_type, file_path)
+                   "VALUE ('{}', '{}', '{}', '{}'); "\
+                   "INSERT INTO file_source (bid, file_type, file_path) " \
+                   "VALUE(LAST_INSERT_ID(), '{}', '{}')".format(pid, uid, date_from, date_to, file_type, file_path)
     print insert_query
     return db_connect.execute_insert(insert_query)
 

@@ -92,11 +92,12 @@ def payment():
         session['date_to'] = request.form['date_to']
         session['file_type'] = request.form['file_type']
 
-        prefix_path = 'C:\\PyCharm\\flask_fyp\\static\\file_source'
+        prefix_path = 'C:\\\\PyCharm\\\\flask_fyp\\\\static\\\\file_source\\\\'
 
         f = request.files['file']
         file_path = os.path.join(prefix_path, secure_filename(f.filename))
-        session['file_path'] = f.save(file_path)
+        session['file_path'] = file_path
+        f.save(file_path)
 
 
         return render_template('pages/payment.html',
@@ -104,12 +105,13 @@ def payment():
                                panel_list_by_pid=db_control.get_panel_detail(pid),
                                panel_all_image=db_control.list_all_image_of_panel(pid))
 
+
 @app.route('/confirm')
 def confirm():
-    db_control.insert_booking_detail(session['pid'], session['uid'], session['date_from'], session['date_to'])
-    session['bid'] = db_control.get_booking_bid(session['pid'], session['uid'][0]['uid'])
-    db_control.insert_file_source(session['bid'], session['file_type'], session['file_path'])
+    db_control.insert_booking_detail_and_file_source(session['pid'], session['uid'][0]['uid'], session['date_from'],
+                                                     session['date_to'], session['file_type'], session['file_path'])
     return redirect(url_for('quickstart'))
+
 
 @app.route('/detail')
 def detail():
@@ -132,12 +134,14 @@ def do_register():
         db_control.insert_a_row_to_login_table(request.form['username'], request.form['pwd'],
                                                request.form['company_name'], request.form['email'],
                                                request.form['tel'])
+
         return redirect(url_for('success_register'))
 
 
 @app.route('/success_register')
 def success_register():
     time.sleep(2)
+
     return redirect(url_for('login'))
 
 
