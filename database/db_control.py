@@ -64,14 +64,6 @@ def get_panel_detail(pid):
 
 
 
-"""demo display in payment.html"""
-def get_all_file_of_panel(pid):
-    select_query = "SELECT booking.pid, file_source.file_path FROM booking " \
-                   "INNER JOIN file_source ON  file_source.pid=booking.pid " \
-                   "WHERE booking.pid='{}'".format(pid)
-
-    return db_connect.execute_select(select_query)
-
 
 
 """list all image of a panel in booking.html"""

@@ -15,7 +15,8 @@
                     <form>
                         <div class="form-group" id="file_type">
                             <label>Region</label>
-                            <select class="form-control" name="region">
+                            <select required class="form-control" name="region" >
+                                <option selected disabled>{{ session['region'] }}</option>
                                 <option id="HKI" name="HKI">HK Island</option>
                                 <option id="KLN" name="KLN">Kowloon</option>
                                 <option id="NT" name="NT">NT</option>
@@ -26,13 +27,13 @@
                             <div class="col-lg-6">
                                 <div class="input-group date">
                                     <label>Date From</label>
-                                    <input type="date" class="form-control" id="date_from" name="date_from"/>
+                                    <input type="date" class="form-control" id="date_from" name="date_from" value="{{ session['date_from'] }}"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="input-group date">
                                     <label>Date To</label>
-                                    <input type="date" class="form-control" id="date_to" name="date_to"/>
+                                    <input type="date" class="form-control" id="date_to" name="date_to" value="{{ session['date_to'] }}"/>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +43,8 @@
                             <div class="col-lg-6">
                                 <div class="form-group" id="min_price">
                                     <label>Min Price</label>
-                                    <select class="form-control" name="min_price">
+                                    <select required class="form-control" name="min_price">
+                                        <option disabled selected>Choose One</option>
                                         <option>< 1500</option>
                                         <option>1500 - 3500</option>
                                         <option>3500 - 5500</option>
@@ -53,7 +55,8 @@
                             <div class="col-lg-6">
                                 <div class="form-group" id="max_price">
                                     <label>Max Price</label>
-                                    <select class="form-control" name="max_price">
+                                    <select required class="form-control" name="max_price">
+                                        <option disabled selected>Choose One</option>
                                         <option>< 1500</option>
                                         <option>1500 - 3500</option>
                                         <option>3500 - 5500</option>
@@ -99,7 +102,7 @@
 
                 var var_mapoptions = {
                     center: var_location,
-                    zoom: 18
+                    zoom: 13
                 };
 
                 var var_marker = new google.maps.Marker({

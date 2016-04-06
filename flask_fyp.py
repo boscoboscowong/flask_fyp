@@ -49,10 +49,15 @@ def quickstart():
 
 
 
-@app.route('/quicksearch')
+@app.route('/quicksearch', methods=['POST'])
 def quicksearch():
     if'username' not in session:
         abort(403)
+
+    if request.method == 'POST':
+        session['region'] = request.form['region']
+        session['date_from'] = request.form['date_from']
+        session['date_to'] = request.form['date_to']
 
     return render_template('pages/quicksearch.html',
                            title='Quicksearch')
@@ -108,8 +113,7 @@ def payment():
         return render_template('pages/payment.html',
                                title='Payment',
                                panel_list_by_pid=db_control.get_panel_detail(pid),
-                               panel_all_image=db_control.list_all_image_of_panel(pid),
-                               file_list=db_control.get_all_file_of_panel(pid))
+                               panel_all_image=db_control.list_all_image_of_panel(pid))
 
 
 

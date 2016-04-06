@@ -46,10 +46,10 @@
     <!--quick search form-->
     <div class="row">
         <hr>
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="quicksearch" method="post">
             <div class="col-lg-4">
-                <label for="region" class="control-label">Region</label>
-                <select class="form-control" id="region" placeholder="Region">
+                <label class="control-label">Region</label>
+                <select class="form-control" id="region" name="region">
                     <option>HK Island</option>
                     <option>Kowloon</option>
                     <option>NT</option>
@@ -58,7 +58,7 @@
             <div class="col-lg-3">
                 <label class="control-label">Date From</label>
                 <div class="input-group date" id="date_from">
-                    <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-04"/>
+                    <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-06"/>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
             </div>
@@ -66,15 +66,14 @@
             <div class="col-lg-3">
                 <label class="control-label">Date To</label>
                 <div class="input-group date" id="date_to">
-                    <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-04"/>
+                    <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-06"/>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
             </div>
 
             <div class="col-lg-2">
                 <label>&emsp;</label>
-                <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Start
-                    Searching</strong></button>
+                <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Quick Searching</strong></button>
             </div>
         </form>
     </div>
