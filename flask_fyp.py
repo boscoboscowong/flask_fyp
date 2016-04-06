@@ -58,6 +58,7 @@ def quicksearch():
         session['region'] = request.form['region']
         session['date_from'] = request.form['date_from']
         session['date_to'] = request.form['date_to']
+        session['cap'] = request.form['cap']
 
     return render_template('pages/quicksearch.html',
                            title='Quicksearch')

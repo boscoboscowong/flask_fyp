@@ -1,6 +1,11 @@
 {% extends 'template.html' %}
 {% set active_page = 'quickstart' %}
 
+{% block external_css %}
+    <link href="{{ url_for('static', filename='css/step_bar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/datepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
     <!--slider-->
     <div class="row">
@@ -47,28 +52,34 @@
     <div class="row">
         <hr>
         <form class="form-horizontal" action="quicksearch" method="post">
-            <div class="col-lg-4">
+            <div class="col-lg-2">
                 <label class="control-label">Region</label>
-                <select class="form-control" id="region" name="region">
+                <select required class="form-control" id="region" name="region">
+                    <option disabled selected>Region</option>
                     <option>HK Island</option>
                     <option>Kowloon</option>
                     <option>NT</option>
                 </select>
             </div>
+
+            <div class="col-lg-2">
+                <label class="control-label">Business Mde</label>
+                <select required class="form-control" id="cap" name="cap">
+                    <option disabled selected>Business Mode</option>
+                    <option>Sole</option>
+                    <option>1-5</option>
+                    <option>1-10</option>
+                </select>
+            </div>
+
             <div class="col-lg-3">
                 <label class="control-label">Date From</label>
-                <div class="input-group date" id="date_from">
-                    <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-06"/>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                </div>
+                 <input type="text" class="form-control form-control-1 input-sm from" name="date_from"  placeholder="Date From">
             </div>
 
             <div class="col-lg-3">
                 <label class="control-label">Date To</label>
-                <div class="input-group date" id="date_to">
-                    <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-06"/>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                </div>
+                <input type="text" class="form-control form-control-1 input-sm from" name="date_to" placeholder="Date To">
             </div>
 
             <div class="col-lg-2">
@@ -111,4 +122,34 @@
 
 {% block external_js %}
     <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
+
+
+        <script>
+            var startDate = new Date();
+            var fechaFin = new Date();
+            var FromEndDate = new Date();
+            var ToEndDate = new Date();
+
+
+            $('.from').datepicker({
+                autoclose: true,
+                minViewMode: 1,
+                format: 'yyyy-mm'
+            }).on('changeDate', function (selected) {
+                startDate = new Date(selected.date.valueOf());
+                startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+                $('.to').datepicker('setStartDate', startDate);
+            });
+
+            $('.to').datepicker({
+                autoclose: true,
+                minViewMode: 1,
+                format: 'yyyy-mm'
+            }).on('changeDate', function (selected) {
+                FromEndDate = new Date(selected.date.valueOf());
+                FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+                $('.from').datepicker('setEndDate', FromEndDate);
+            });
+        </script>
 {% endblock %}
