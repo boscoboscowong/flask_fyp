@@ -23,9 +23,9 @@
 
                     {% set num = ['2', '3', '4', '5'] %}
                     {% for item in num %}
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='img/slider/slider_' + item + '.jpg') }}">
-                    </div>
+                        <div class="item">
+                            <img src="{{ url_for('static', filename='img/slider/slider_' + item + '.jpg') }}">
+                        </div>
                     {% endfor %}
                 </div>
 
@@ -45,68 +45,71 @@
 
     <!--quick search form-->
     <div class="row">
-      <hr>
-      <form class="form-horizontal">
-        <div class="col-lg-4">
-         <label for="region" class="control-label">Region</label>
-          <select class="form-control" id="region" placeholder="Region">
-            <option>HK Island</option>
-            <option>Kowloon</option>
-            <option>NT</option>
-          </select>
-        </div>
-        <div class="col-lg-3">
-         <label class="control-label">Date From</label>
-          <div class="input-group date" id="date_from">
-              <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-04"/>
-              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-          </div>
-        </div>
+        <hr>
+        <form class="form-horizontal">
+            <div class="col-lg-4">
+                <label for="region" class="control-label">Region</label>
+                <select class="form-control" id="region" placeholder="Region">
+                    <option>HK Island</option>
+                    <option>Kowloon</option>
+                    <option>NT</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <label class="control-label">Date From</label>
+                <div class="input-group date" id="date_from">
+                    <input type="date" class="form-control" name="date_from" id="date_from" min="2016-04-04"/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
 
-          <div class="col-lg-3">
-              <label class="control-label">Date To</label>
-              <div class="input-group date" id="date_to">
-                  <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-04"/>
-                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-              </div>
-          </div>
+            <div class="col-lg-3">
+                <label class="control-label">Date To</label>
+                <div class="input-group date" id="date_to">
+                    <input type="date" class="form-control" name="date_to" id="date_to" min="2016-04-04"/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
 
-        <div class="col-lg-2">
-        <label>&emsp;</label>
-          <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Start Searching</strong></button>
-        </div>
-      </form>
+            <div class="col-lg-2">
+                <label>&emsp;</label>
+                <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Start
+                    Searching</strong></button>
+            </div>
+        </form>
     </div>
     <!--/quick search form-->
 
     <!--other choice-->
     <div class="row" style="margin-bottom: 20px;">
-      <hr>
-      <!--header-->
-      <div class="panel">
-        <div class="panel-heading text-center">
-          <svg class="glyph stroked map">
-            <use xlink:href="#stroked-map" />
-          </svg><strong>Extraordinary Experience</strong>
+        <hr>
+        <!--header-->
+        <div class="panel">
+            <div class="panel-heading text-center">
+                <svg class="glyph stroked map">
+                    <use xlink:href="#stroked-map"/>
+                </svg>
+                <strong>Extraordinary Experience</strong>
+            </div>
         </div>
-      </div>
 
         {% for item in panel_list %}
-      <div class="col-lg-4">
-        <div class="hovereffect">
-          <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}" height="200" width="300" style="margin-bottom: 30px;">
-          <a href="/booking?pid={{ item.pid }}">
-            <div class="overlay">
-              <h2>{{ item.name }}</h2>
+            <div class="col-lg-4">
+                <div class="hovereffect">
+                    <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}"
+                         height="200" width="300" style="margin-bottom: 30px;">
+                    <a href="/booking?pid={{ item.pid }}">
+                        <div class="overlay">
+                            <h2>{{ item.name }}</h2>
+                        </div>
+                    </a>
+                </div>
             </div>
-          </a>
-        </div>
-      </div>
         {% endfor %}
     </div>
     <!--/other choice-->
-  {% endblock %}
+{% endblock %}
 
 {% block external_js %}
-<script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
 {% endblock %}

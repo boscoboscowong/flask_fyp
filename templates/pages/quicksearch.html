@@ -1,111 +1,121 @@
-<!DOCTYPE html>
-<html>
+{% extends  'template.html' %}
+{% set active_page='reserve' %}
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quicksearch</title>
+{% block body %}
+    <div class="row">
+    <!--left hand side-->
+        <!--preference panel-->
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <svg class="glyph stroked checkmark">
+                        <use xlink:href="#stroked-checkmark"/></svg>Preference
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group" id="file_type">
+                            <label>Region</label>
+                            <select class="form-control" name="region">
+                                <option id="HKI" name="HKI">HK Island</option>
+                                <option id="KLN" name="KLN">Kowloon</option>
+                                <option id="NT" name="NT">NT</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="form-inline">
+                            <div class="col-lg-6">
+                                <div class="input-group date">
+                                    <label>Date From</label>
+                                    <input type="date" class="form-control" id="date_from" name="date_from"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group date">
+                                    <label>Date To</label>
+                                    <input type="date" class="form-control" id="date_to" name="date_to"/>
+                                </div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="form-inline">
+                            <br><hr>
+                            <div class="col-lg-6">
+                                <div class="form-group" id="min_price">
+                                    <label>Min Price</label>
+                                    <select class="form-control" name="min_price">
+                                        <option>< 1500</option>
+                                        <option>1500 - 3500</option>
+                                        <option>3500 - 5500</option>
+                                        <option>> 5500</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group" id="max_price">
+                                    <label>Max Price</label>
+                                    <select class="form-control" name="max_price">
+                                        <option>< 1500</option>
+                                        <option>1500 - 3500</option>
+                                        <option>3500 - 5500</option>
+                                        <option>> 5500</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--/preference panel-->
 
-    <!--css-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+        <!--result panel-->
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                   <svg class="glyph stroked tag">
+                       <use xlink:href="#stroked-tag"/></svg>Quicksearch
+                </div>
+                <div class="panel-body">
 
-    <link href="css/daterangepicker.css" rel="stylesheet">
+                </div>
+            </div>
+        <!--/result panel-->
+        </div>
+    <!--/left hand side-->
 
-    <!--icon-->
-    <script src="js/icon.js"></script>
-  </head>
+    <!--right hand side-->
+        <div class="col-lg-6">
+            <div id="map-canvas"></div>
+        </div>
+    <!--right hand side-->
+    </div>
+{% endblock %}
 
- <body>
-   <!--navbar-->
-   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-     <div class="container-fluid">
-       <div class="navbar-header">
+{% block external_js %}
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
 
-         <!--brand-->
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
-           <span class="sr-only">Advertisement Panel</span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-           <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="#"><span>Advertisement</span>Panel</a>
-         <!--brand-->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script>
+            function init_map() {
+                var var_location = new google.maps.LatLng(22.2863939, 114.1515148);
 
-         <!--user menu-->
-         <ul class="user-menu">
-           <li class="dropdown pull-right">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-               <svg class="glyph stroked male-user">
-                 <use xlink:href="#stroked-male-user"></use>
-               </svg> User <span class="caret"></span></a>
-             <ul class="dropdown-menu" role="menu">
-               <li>
-                 <a href="#">
-                   <svg class="glyph stroked male-user">
-                     <use xlink:href="#stroked-male-user"></use>
-                   </svg> Profile</a>
-               </li>
-               <li>
-                 <a href="#">
-                   <svg class="glyph stroked cancel">
-                     <use xlink:href="#stroked-cancel"></use>
-                   </svg> Logout</a>
-               </li>
-             </ul>
-           </li>
-         </ul>
-       </div>
-     </div>
-     <!-- /.container-fluid -->
-   </nav>
-   <!--/navbar-->
+                var var_mapoptions = {
+                    center: var_location,
+                    zoom: 18
+                };
 
-   <!--sidebar-->
-   <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-     <ul class="nav menu">
-       <li class="active" id="quickstart">
-         <a href="quickstart.html">
-           <svg class="glyph stroked star">
-             <use xlink:href="#stroked-star" />
-           </svg> Quickstart Booking</a>
-       </li>
-       <li>
-         <a href="location.html" id="reserve">
-           <svg class="glyph stroked app-window">
-             <use xlink:href="#stroked-app-window"></use>
-           </svg> Formal Reserve</a>
-       </li>
-       <li>
-         <a href="detail.html" id="detail">
-           <svg class="glyph stroked table">
-             <use xlink:href="#stroked-table"></use>
-           </svg> Booking Details</a>
-       </li>
-     </ul>
-   </div>
-   <!--/.sidebar-->
+                var var_marker = new google.maps.Marker({
+                    position: var_location,
+                    map: var_map,
+                    title: "Venice"
+                });
 
+                var var_map = new google.maps.Map(document.getElementById("map-canvas"),
+                        var_mapoptions);
 
-   <!--main-->
-   <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+                var_marker.setMap(var_map);
 
-     <!--inner-navbar-->
-     <div class="row">
-       <ol class="breadcrumb">
-         <li>
-           <a href="quickstart.html">
-             <svg class="glyph stroked home">
-               <use xlink:href="#stroked-home"></use>
-             </svg>
-           </a>
-         </li>
-         <li>
-           <a href="quicksearch.html">Quicksearch</a></li>
-       </ol>
-     </div>
-     <!--/inner-navbar-->
+            }
 
-     <h3>Quicksearch</h3>
+            google.maps.event.addDomListener(window, 'load', init_map);
 
- </body>
+        </script>
+{% endblock %}

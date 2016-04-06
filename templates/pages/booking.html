@@ -120,7 +120,9 @@
                     <div class="panel-body">
                         <ul>
                             <li class="clearfix">
-                                <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}" height="200" width="300">
+                                <img class="center-block"
+                                     src="{{ url_for('static', filename='img/' + item.panel_path) }}" height="200"
+                                     width="300">
                             </li>
 
                             <li class="clearfix">
@@ -171,10 +173,16 @@
 
                 <!--all image of the panel-->
                 <div class="panel panel-info">
-                    <div class="panel-heading"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg>Images</div>
+                    <div class="panel-heading">
+                        <svg class="glyph stroked landscape">
+                            <use xlink:href="#stroked-landscape"/>
+                        </svg>
+                        Images
+                    </div>
                     <div class="panel-body">
                         {% for image in panel_all_image %}
-                            <img src="{{ url_for('static', filename='img/' + image.panel_path) }}" height="150" width="250">
+                            <img src="{{ url_for('static', filename='img/' + image.panel_path) }}" height="150"
+                                 width="250">
                         {% endfor %}
                     </div>
                 </div>
@@ -198,13 +206,19 @@
         <hr>
         <!--header-->
         <div class="panel">
-            <div class="panel-heading"><svg class="glyph stroked map"><use xlink:href="#stroked-map"/></svg>Other Choices</div>
+            <div class="panel-heading">
+                <svg class="glyph stroked map">
+                    <use xlink:href="#stroked-map"/>
+                </svg>
+                Other Choices
+            </div>
         </div>
 
         {% for choice in panel_other_choice %}
             <div class="col-lg-4">
                 <div class="hovereffect">
-                    <img class="center-block" src="{{ url_for('static', filename='img/' + choice.panel_path) }}" height="200"
+                    <img class="center-block" src="{{ url_for('static', filename='img/' + choice.panel_path) }}"
+                         height="200"
                          width="300" style="margin-bottom: 30px;">
                     <a href="/location">
                         <div class="overlay">

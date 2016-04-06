@@ -4,19 +4,24 @@ from database_class.panel_source import Panel_source
 from database_class.user import User
 
 
+
 """check user login in login.html"""
 def check_user_login(username, pwd):
     select_query = "SELECT COUNT(*) as num FROM login " \
                    "WHERE username= '{}'"\
                    "AND pwd='{}'".format(username, pwd)
+
     return db_connect.verify_user_login(select_query)
+
 
 
 """user uid in login.html"""
 def get_user_uid(username):
     select_query = "SELECT login.uid FROM login " \
                    "WHERE username='{}'".format(username)
+
     return db_connect.execute_select(select_query)
+
 
 
 """panel detail in location.html"""
@@ -34,7 +39,9 @@ def get_panel_detail_by_region():
                                 row['height'], row['width'], row['airtime_rate'],
                                 row['pedestrain_flow'], row['cap'], row['img_no'],
                                 row['panel_path'], row['used']))
+
     return panel_list
+
 
 
 """panel detail in booking.html"""
@@ -52,7 +59,19 @@ def get_panel_detail(pid):
                                 row['height'], row['width'], row['airtime_rate'],
                                 row['pedestrain_flow'], row['cap'], row['img_no'],
                                 row['panel_path'], row['used']))
+
     return panel_list
+
+
+
+"""demo display in payment.html"""
+def get_all_file_of_panel(pid):
+    select_query = "SELECT booking.pid, file_source.file_path FROM booking " \
+                   "INNER JOIN file_source ON  file_source.pid=booking.pid " \
+                   "WHERE booking.pid='{}'".format(pid)
+
+    return db_connect.execute_select(select_query)
+
 
 
 """list all image of a panel in booking.html"""
@@ -66,13 +85,15 @@ def list_all_image_of_panel(pid):
     return panel_list
 
 
-"""upload booking detail and file_source in pyament.html"""
-def insert_booking_detail_and_file_source(pid, uid, date_from, date_to, file_type, file_path):
+
+"""upload booking detail and file_source in payment.html"""
+def insert_booking_detail_and_file_source(pid, uid, date_from, date_to, file_pid, file_type, file_path):
     insert_query = "INSERT INTO booking (pid, uid, date_from, date_to) " \
                    "VALUE ('{}', '{}', '{}', '{}'); "\
-                   "INSERT INTO file_source (bid, file_type, file_path) " \
-                   "VALUE(LAST_INSERT_ID(), '{}', '{}')".format(pid, uid, date_from, date_to, file_type, file_path)
-    print insert_query
+                   "INSERT INTO file_source (bid, pid, file_type, file_path) " \
+                   "VALUE(LAST_INSERT_ID(), '{}', '{}', '{}') ".format(pid, uid, date_from,
+                                                                       date_to, file_pid, file_type, file_path)
+
     return db_connect.execute_insert(insert_query)
 
 
@@ -80,7 +101,9 @@ def insert_booking_detail_and_file_source(pid, uid, date_from, date_to, file_typ
 def insert_a_row_to_login_table(username, pwd, company_name, email, tel):
     insert_query = "INSERT INTO login (username, pwd, company_name, email, tel) " \
                    "VALUE ('{}', '{}', '{}', '{}', '{}')".format(username, pwd, company_name, email, tel)
+
     return db_connect.execute_insert(insert_query)
+
 
 
 """user detail in profile.html"""
@@ -95,6 +118,9 @@ def get_user_detail(username):
                               row['email'], row['tel'], row['frequency']))
 
     return user_list
+
+
+
 
 
 

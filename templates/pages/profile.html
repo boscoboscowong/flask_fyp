@@ -2,47 +2,47 @@
 
 {% block body %}
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-            {% for item in user_profile %}
-            <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{ item.company_name }}</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center">
-                  <svg class="glyph stroked male user ">
-                    <use xlink:href="#stroked-male-user" />
-                  </svg>
-                </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                {% for item in user_profile %}
+                    <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ item.company_name }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center">
+                                <svg class="glyph stroked male user ">
+                                    <use xlink:href="#stroked-male-user"/>
+                                </svg>
+                            </div>
 
-                <div class=" col-md-9 col-lg-9 ">
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Username</td>
-                        <td>{{ item.username }}</td>
-                      </tr>
-                      <tr>
-                        <td>Email</td>
-                        <td>{{ item.email }}</td>
-                      </tr>
-                      <tr>
-                        <td>Tel No.</td>
-                        <td>{{ item.tel }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>{{ item.username }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{ item.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tel No.</td>
+                                        <td>{{ item.tel }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                  <a href="#" class="btn btn-primary">Change My Password</a>
-                  <a href="/detail" class="btn btn-primary">View My Booking</a>
+                                <a href="#" class="btn btn-primary">Change My Password</a>
+                                <a href="/detail" class="btn btn-primary">View My Booking</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
                 </div>
-              </div>
             </div>
-              {% endfor %}
-          </div>
         </div>
-      </div>
     </div>
 {% endblock %}

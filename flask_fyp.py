@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, session, url_for, redirect, abort
 from werkzeug.utils import secure_filename
-import os
-import time
+import time, os
 from database import db_connect
 from database import db_control
 
@@ -13,6 +12,7 @@ app = Flask(__name__)
 def login():
     return render_template('pages/login.html',
                            title='Login')
+
 
 
 @app.route('/checking', methods=['POST'])
@@ -30,10 +30,12 @@ def check():
     return redirect(url_for('login'))
 
 
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
+
 
 
 @app.route('/quickstart')
@@ -46,9 +48,10 @@ def quickstart():
                            panel_list=db_control.get_panel_detail_by_region())
 
 
+
 @app.route('/quicksearch')
 def quicksearch():
-    if 'username' not in session:
+    if'username' not in session:
         abort(403)
 
     return render_template('pages/quicksearch.html',
@@ -63,6 +66,7 @@ def location():
     return render_template('pages/location.html',
                            title='Location',
                            panel_list=db_control.get_panel_detail_by_region())
+
 
 
 @app.route('/booking', methods=['GET'])
@@ -80,6 +84,7 @@ def booking():
                                panel_other_choice=db_control.get_panel_detail_by_region())
 
 
+
 @app.route('/payment', methods=['POST'])
 def payment():
     if 'username' not in session:
@@ -92,7 +97,7 @@ def payment():
         session['date_to'] = request.form['date_to']
         session['file_type'] = request.form['file_type']
 
-        prefix_path = 'C:\\\\PyCharm\\\\flask_fyp\\\\static\\\\file_source\\\\'
+        prefix_path = 'C:\\\\file_source\\\\'
 
         f = request.files['file']
         file_path = os.path.join(prefix_path, secure_filename(f.filename))
@@ -103,14 +108,17 @@ def payment():
         return render_template('pages/payment.html',
                                title='Payment',
                                panel_list_by_pid=db_control.get_panel_detail(pid),
-                               panel_all_image=db_control.list_all_image_of_panel(pid))
+                               panel_all_image=db_control.list_all_image_of_panel(pid),
+                               file_list=db_control.get_all_file_of_panel(pid))
+
 
 
 @app.route('/confirm')
 def confirm():
     db_control.insert_booking_detail_and_file_source(session['pid'], session['uid'][0]['uid'], session['date_from'],
-                                                     session['date_to'], session['file_type'], session['file_path'])
+                                                     session['date_to'], session['pid'], session['file_type'], session['file_path'])
     return redirect(url_for('quickstart'))
+
 
 
 @app.route('/detail')
@@ -122,10 +130,12 @@ def detail():
                            title='Detail')
 
 
+
 @app.route('/register')
 def register():
     return render_template('pages/register.html',
                            title='Register')
+
 
 
 @app.route('/doregister', methods=['POST'])
@@ -138,11 +148,13 @@ def do_register():
         return redirect(url_for('success_register'))
 
 
+
 @app.route('/success_register')
 def success_register():
     time.sleep(2)
 
     return redirect(url_for('login'))
+
 
 
 @app.route('/profile')
@@ -153,6 +165,7 @@ def profile():
     return render_template('pages/profile.html',
                            title='Profile',
                            user_profile=db_control.get_user_detail(session['username']))
+
 
 
 if __name__ == '__main__':
