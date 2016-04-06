@@ -943,9 +943,9 @@ h1.page-header {
 	border: 2px solid #fff;
 }
 
-#map-canvas {
+#map-show {
 	width: 100%;
-	height: 100%;
+	height: 800px;
 	border: 2px solid #fff;
 }
 

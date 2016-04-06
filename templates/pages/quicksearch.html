@@ -83,7 +83,7 @@
 
     <!--right hand side-->
         <div class="col-lg-6">
-            <div id="map-canvas"></div>
+            <div id="map-show"></div>
         </div>
     <!--right hand side-->
     </div>
@@ -108,7 +108,7 @@
                     title: "Venice"
                 });
 
-                var var_map = new google.maps.Map(document.getElementById("map-canvas"),
+                var var_map = new google.maps.Map(document.getElementById("map-show"),
                         var_mapoptions);
 
                 var_marker.setMap(var_map);
