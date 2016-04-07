@@ -21,6 +21,7 @@ def execute_insert(query):
         print("Cannot connect to database")
 
 
+
 def execute_select(query):
     """
     SELECT query in database
@@ -39,6 +40,26 @@ def execute_select(query):
         print('Cannot connect to database')
 
 
+
+def execute_update(query):
+    """
+    UPDATE query in database
+    """
+
+    try:
+        conn = mysql.connector.connect(user='root', password='', database='fyp')
+        cursor = conn.cursor()
+        cursor.execute(query)
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+    except Error as e:
+        print(e)
+        print('Cannot connect to database')
+
+
+
 def verify_user_login(query):
 
     try:
@@ -53,3 +74,6 @@ def verify_user_login(query):
     except Error as e:
         print(e)
         print('Cannot connect to database')
+
+
+

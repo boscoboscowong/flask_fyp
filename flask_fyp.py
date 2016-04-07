@@ -87,7 +87,8 @@ def booking():
                                pid=pid,
                                panel_list_by_pid=db_control.get_panel_detail(pid),
                                panel_all_image=db_control.list_all_image_of_panel(pid),
-                               panel_other_choice=db_control.get_panel_detail_by_region())
+                               panel_other_choice=db_control.get_panel_detail_by_region(),
+                               list_all_booking=db_control.get_all_booking_of_panel(pid))
 
 
 
@@ -103,25 +104,29 @@ def payment():
         session['date_to'] = request.form['date_to']
         session['file_type'] = request.form['file_type']
 
-        prefix_path = 'C:\\\\file_source\\\\'
 
-        f = request.files['file']
+        prefix_path = 'C:\\\\PyCharm\\\\flask_fyp\\\\static\\\\file_source\\\\'
+
+        f = request.files['file_path']
+        session['file_path'] = f.filename
         file_path = os.path.join(prefix_path, secure_filename(f.filename))
-        session['file_path'] = file_path
         f.save(file_path)
-
 
         return render_template('pages/payment.html',
                                title='Payment',
                                panel_list_by_pid=db_control.get_panel_detail(pid),
-                               panel_all_image=db_control.list_all_image_of_panel(pid))
+                               panel_all_image=db_control.list_all_image_of_panel(pid),
+                               demo_display=db_control.get_all_file_of_panel(pid, session['date_from'], session['date_to']))
 
 
 
 @app.route('/confirm')
 def confirm():
     db_control.insert_booking_detail_and_file_source(session['pid'], session['uid'][0]['uid'], session['date_from'],
-                                                     session['date_to'], session['pid'], session['file_type'], session['file_path'])
+                                                     session['date_to'], session['pid'], session['file_type'],
+                                                     session['file_path'])
+    db_control.update_1_to_panel_usage(session['pid'])
+
     return redirect(url_for('quickstart'))
 
 
@@ -173,7 +178,7 @@ def profile():
 
 
 
-if __name__ == '__main__':
+if __name__ =='__main__':
     app.debug = True
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'

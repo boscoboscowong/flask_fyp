@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="row multistep current">
                 <div class="col-lg-4 multistep-step complete">
-                    <div class="text-center multistep-stepname">Location</div>
+                    <div class="text-center multistep-stepname"><strong>Step 1: Location</strong></div>
                     <div class="progress">
                         <div class="progress-bar"></div>
                     </div>
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-lg-4 multistep-step complete">
-                    <div class="text-center multistep-stepname">Booking</div>
+                    <div class="text-center multistep-stepname"><strong>Step 2: Booking</strong></div>
                     <div class="progress">
                         <div class="progress-bar"></div>
                     </div>
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col-lg-4 multistep-step next">
-                    <div class="text-center multistep-stepname">Payment</div>
+                    <div class="text-center multistep-stepname"><strong>Step 3: Payment</strong></div>
                     <div class="progress">
                         <div class="progress-bar"></div>
                     </div>
@@ -107,7 +107,7 @@
                         <br>
                         <div class="form-group">
                             <label>Date To</label>
-                            <input type="text" class="form-control form-control-1 input-sm from" name="date_to"
+                            <input type="text" class="form-control form-control-1 input-sm to" name="date_to"
                                    placeholder="Date To">
                         </div>
                         <br>
@@ -121,7 +121,7 @@
                         <br>
                         <div class="form-group">
                             <label>File Input</label>
-                            <input type="file" name="file"/>
+                            <input type="file" name="file_path"/>
                         </div>
                         <br>
                         <hr>
@@ -133,9 +133,14 @@
             </div>
             <!--/booking form-->
 
-            <!--other booking-->
+            <!--all booking of selected panel-->
             <div class="panel panel-info">
-                <div class="panel-heading"><svg class="glyph stroked toiler paper"><use xlink:href="#stroked-toiler-paper"/></svg>All Bookings from Other Companies in this panel</div>
+                <div class="panel-heading">
+                    <svg class="glyph stroked toiler paper">
+                        <use xlink:href="#stroked-toiler-paper"/>
+                    </svg>
+                    All Bookings from Other Companies in this panel
+                </div>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -147,13 +152,19 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                            {% for item in list_all_booking %}
+                                <tr>
+                                    <td>{{ item.company_name }}</td>
+                                    <td>{{ item.date_from }}</td>
+                                    <td>{{ item.date_to }}</td>
+                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!--/other booking-->
+            <!--/all booking of selected panel-->
         </div>
         <!--/booking form-->
 
@@ -162,7 +173,12 @@
             <div class="col-lg-7">
                 <br><br>
                 <div class="panel panel-info">
-                    <div class="panel-heading"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg>Panel Details</div>
+                    <div class="panel-heading">
+                        <svg class="glyph stroked clipboard with paper">
+                            <use xlink:href="#stroked-clipboard-with-paper"/>
+                        </svg>
+                        Panel Details
+                    </div>
 
                     <div class="panel-body">
                         <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}"
@@ -213,7 +229,12 @@
 
                 <!--all image of the panel-->
                 <div class="panel panel-info">
-                    <div class="panel-heading"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg>All Images about this panel</div>
+                    <div class="panel-heading">
+                        <svg class="glyph stroked landscape">
+                            <use xlink:href="#stroked-landscape"/>
+                        </svg>
+                        All Images about this panel
+                    </div>
 
                     <div class="panel-body">
                         {% for image in panel_all_image %}
@@ -299,33 +320,33 @@
 
             google.maps.event.addDomListener(window, 'load', init_map);
         </script>
-        {% endfor %}
+    {% endfor %}
 
-        <script>
-            var startDate = new Date();
-            var fechaFin = new Date();
-            var FromEndDate = new Date();
-            var ToEndDate = new Date();
+    <script>
+        var startDate = new Date();
+        var fechaFin = new Date();
+        var FromEndDate = new Date();
+        var ToEndDate = new Date();
 
 
-            $('.from').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                startDate = new Date(selected.date.valueOf());
-                startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-                $('.to').datepicker('setStartDate', startDate);
-            });
+        $('.from').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            startDate = new Date(selected.date.valueOf());
+            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+            $('.to').datepicker('setStartDate', startDate);
+        });
 
-            $('.to').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                FromEndDate = new Date(selected.date.valueOf());
-                FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-                $('.from').datepicker('setEndDate', FromEndDate);
-            });
-        </script>
+        $('.to').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            FromEndDate = new Date(selected.date.valueOf());
+            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+            $('.from').datepicker('setEndDate', FromEndDate);
+        });
+    </script>
 {% endblock %}
