@@ -120,9 +120,7 @@ def get_all_file_of_panel(pid, date_from, date_to):
                    "WHERE booking.pid='{}' " \
                    "AND booking.date_from>=concat('{}', '-01') " \
                    "AND booking.date_to<=concat('{}', '-01')".format(pid, date_from, date_to)
-
     return db_connect.execute_select(select_query)
-
 
 
 """upload booking detail and file_source in payment.html"""

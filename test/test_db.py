@@ -1,4 +1,4 @@
 from database import db_control
 
-for row in db_control.get_booking_bid(1, 1):
-    print row['bid']
+for idx in range(1, 10):
+    print idx

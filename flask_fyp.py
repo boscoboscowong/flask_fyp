@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, url_for, redirect, abort
+from flask import Flask, render_template, request, session, url_for, redirect, abort, jsonify
 from werkzeug.utils import secure_filename
 import time, os
 from database import db_connect
@@ -118,6 +118,14 @@ def payment():
                                panel_all_image=db_control.list_all_image_of_panel(pid),
                                demo_display=db_control.get_all_file_of_panel(pid, session['date_from'], session['date_to']))
 
+
+
+@app.route('/getdata', methods=['POST'])
+def get_data():
+    pid = session['pid']
+    rows = db_control.get_all_file_of_panel(pid, session['date_from'], session['date_to'])
+    results = {idx: rows[idx]['file_path'] for idx in range(0, len(rows))}
+    return jsonify(results)
 
 
 @app.route('/confirm')

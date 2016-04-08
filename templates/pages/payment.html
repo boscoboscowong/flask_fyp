@@ -55,7 +55,10 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <video id="demo" width="320" height="240"></video>
+                <video id="player" preload="auto" width="400" height="300" controls autoplay>
+                    <source id="mp4Source" src="">
+                </video>
+
                 <br>
                 <hr>
                 <br>
@@ -64,7 +67,8 @@
                         <div class="col-lg-6">
                             <div class="input-group date">
                                 <label class="control-label">Date From</label>
-                                <input type="text" class="form-control form-control-1 input-sm from" name="date_from"
+                                <input type="text" class="form-control form-control-1 input-sm from"
+                                       name="date_from"
                                        placeholder="{{ session['date_from'] }}">
                             </div>
                         </div>
@@ -176,7 +180,8 @@
                                 <label for="cardNumber">CARD NUMBER</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="cardNumber"
-                                           placeholder="Valid Card Number" required autofocus data-stripe="number"/>
+                                           placeholder="Valid Card Number" required autofocus
+                                           data-stripe="number"/>
                                     <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                 </div>
                                 <br>
@@ -194,7 +199,8 @@
                                            required data-stripe="exp_month"/>
                                 </div>
                                 <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" name="expYear" placeholder="YY" required
+                                    <input type="text" class="form-control" name="expYear" placeholder="YY"
+                                           required
                                            data-stripe="exp_year"/>
                                 </div>
                             </div>
@@ -202,7 +208,8 @@
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
                                 <label for="cvCode">CV CODE</label>
-                                <input type="password" class="form-control" name="cvCode" placeholder="CV" required
+                                <input type="password" class="form-control" name="cvCode" placeholder="CV"
+                                       required
                                        data-stripe="cvc"/>
                             </div>
                         </div>
@@ -219,7 +226,8 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <br><br>
-                            <button class="btn btn-success btn-lg btn-block" type="submit">Submit Payment</button>
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Submit Payment
+                            </button>
                         </div>
                     </div>
                     <div class="row" style="display:none;">
@@ -248,7 +256,8 @@
         <div class="panel-body">
         <!--img-->
         <div class="row">
-            <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}" height="200"
+            <img class="center-block" src="{{ url_for('static', filename='img/' + item.panel_path) }}"
+                 height="200"
                  width="300">
             <hr>
         </div>
@@ -302,7 +311,8 @@
                 </table>
                 <br>
                 {% for image in panel_all_image %}
-                    <img src="{{ url_for('static', filename='img/' + image.panel_path) }}" height="150" width="250">
+                    <img src="{{ url_for('static', filename='img/' + image.panel_path) }}" height="150"
+                         width="250">
                 {% endfor %}
             </div>
         </div>
@@ -340,5 +350,38 @@
 {% endblock %}
 
 {% block external_js %}
+    <script>
+        video_url = [];
 
+        $(document).ready(function () {
+            $.ajax({
+                method: 'post',
+                url: '/getdata',
+                dataType: 'json',
+                success: function (result) {
+                    $.each(result, function (key, val) {
+                        if (key == 0) {
+                            $("#mp4Source").attr("src", "{{ url_for('static', filename='file_source/') }}" + val);
+                            player.load();
+                            player.play();
+                        }
+
+                        video_url.push(val);
+                    });
+                }
+            });
+        });
+
+        var count = 1;
+        $("#player").on("ended", function () {
+            if (count == video_url.length)
+                    count = 0;
+
+            $("#mp4Source").attr("src", "{{ url_for('static', filename='file_source/') }}" + video_url[count++]);
+            player.load();
+            player.play();
+        });
+    </script>
 {% endblock %}
+
+
