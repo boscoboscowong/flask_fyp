@@ -54,13 +54,13 @@ def quicksearch():
         session['region'] = request.form['region']
         session['date_from'] = request.form['date_from']
         session['date_to'] = request.form['date_to']
-        session['cap'] = request.form['cap']
+        session['mode'] = request.form['mode']
         session['min_price'] = request.form['min_price']
         session['max_price'] = request.form['max_price']
 
     return render_template('pages/quicksearch.html',
                            title='Quicksearch',
-                           suitable_panel=db_control.get_all_panel_by_preference(session['region'], session['cap'], session['date_from'],
+                           suitable_panel=db_control.get_all_panel_by_preference(session['region'], session['mode'], session['date_from'],
                                                                                  session['date_to'], session['min_price'], session['max_price']))
 
 
@@ -145,7 +145,6 @@ def detail():
                             booking_detail=db_control.get_all_booking_detail(session['uid'][0]['uid']))
 
 
-
 @app.route('/register')
 def register():
     return render_template('pages/register.html',
@@ -188,7 +187,6 @@ def supplier():
                            title='Supplier')
 
 
-
 @app.route('/panel_upload', methods=['POST'])
 def panelupload():
     panel_name = request.form['panel_name']
@@ -200,7 +198,14 @@ def panelupload():
     width = request.form['width']
     airtime_rate = request.form['airtime_rate']
     pedestrian_flow = request.form['pedestrain_flow']
-    business_mode = request.form['cap']
+    business_mode = request.form['mode']
+
+    if business_mode == 'sole':
+        cap = 1
+    elif business_mode == '1-5':
+        cap = 5
+    else:
+        cap = 10
 
     f1 = request.files['file_path_1']
     f2 = request.files['file_path_2']
@@ -217,10 +222,9 @@ def panelupload():
     f2.save(file_path_2)
 
     db_control.insert_panel_detail(panel_name, region, location, latitude, longitude, height, width, airtime_rate,
-                                   pedestrian_flow, business_mode, session['file_path_1'], session['file_path_2'])
+                                   pedestrian_flow, business_mode, cap, session['file_path_1'], session['file_path_2'])
 
     return redirect(url_for('quickstart'))
-
 
 
 @app.route('/csv')
@@ -228,7 +232,6 @@ def csv_upload():
 
     return render_template('pages/csv.html',
                            title='CSV Upload')
-
 
 
 @app.route('/readcsv', methods=['POST'])

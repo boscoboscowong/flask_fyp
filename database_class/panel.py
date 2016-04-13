@@ -1,7 +1,7 @@
 class Panel:
 
     def __init__(self, pid, name, region, location, latitude, longitude,
-                 height, width, airtime_rate, pedestrain_flow, cap, img_no, panel_path, used):
+                 height, width, airtime_rate, pedestrain_flow, mode, cap, img_no, panel_path, used):
         self.pid = pid
         self.name = name
         self.region = region
@@ -12,6 +12,7 @@ class Panel:
         self.width = width
         self.airtime_rate = airtime_rate
         self.pedestrain_flow = pedestrain_flow
+        self.mode = mode
         self.cap = cap
         self.img_no = img_no
         self.panel_path = panel_path
