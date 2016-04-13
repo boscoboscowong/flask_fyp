@@ -50,7 +50,8 @@ def get_panel_detail_by_region():
     select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
                    "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
                    "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
-                   "WHERE panel_source.img_no='1'" \
+                   "WHERE panel_source.img_no='1' " \
+                   "AND panel_usage.used<panel.cap " \
                    "ORDER BY panel.region"
 
     panel_list = []
@@ -104,12 +105,13 @@ def get_all_booking_of_panel(pid):
     return db_connect.execute_select(select_query)
 
 
-"""only show 3 panel detail in quickstart.html"""
+"""only show 3 panel detail in booking.html"""
 def get_panel_detail_by_region_limit_3():
     select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
                    "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
                    "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
-                   "WHERE panel_source.img_no='1'" \
+                   "WHERE panel_source.img_no='1' " \
+                   "AND panel_usage.used<panel.cap " \
                    "ORDER BY panel.region " \
                    "LIMIT 3"
 
@@ -132,6 +134,25 @@ def get_all_file_of_panel(pid, date_from, date_to):
                    "WHERE booking.pid='{}' " \
                    "AND booking.date_from>=concat('{}', '-01') " \
                    "AND booking.date_to<=concat('{}', '-01')".format(pid, date_from, date_to)
+    return db_connect.execute_select(select_query)
+
+
+
+"""discount on panel usage in payment.html"""
+def discount_on_panel_usage(pid):
+    select_query = "SELECT panel.cap, panel_usage.used FROM panel " \
+                   "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
+                   "WHERE panel.pid='{}' ".format(pid)
+
+    return db_connect.execute_select(select_query)
+
+
+"""discount on user freq in payment.html"""
+def discount_on_user_freq(uid):
+    select_query = "SELECT login.*, user_freq FROM login " \
+                   "INNER JOIN user_freq ON login.uid=user_freq.uid " \
+                   "WHERE login.uid='{}'".format(uid)
+
     return db_connect.execute_select(select_query)
 
 
@@ -199,7 +220,8 @@ def get_panel_detail_by_region_limit_9():
     select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
                    "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
                    "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
-                   "WHERE panel_source.img_no='1'" \
+                   "WHERE panel_source.img_no='1' " \
+                   "AND panel_usage.used<panel.cap " \
                    "ORDER BY panel.region " \
                    "LIMIT 9"
 
@@ -215,17 +237,14 @@ def get_panel_detail_by_region_limit_9():
 
 
 """get all suitable panel in quicksearch.html"""
-def get_all_panel_by_preference(region, mode, date_from, date_to, min_price, max_price):
-    select_query = "SELECT panel.*, panel_source.*, panel_usage.used, booking.* FROM panel " \
+def get_all_panel_by_preference(region, mode, min_price, max_price):
+    select_query = "SELECT panel.*, panel_source.*, panel_usage.* FROM panel " \
                    "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
                    "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
-                   "INNER JOIN booking ON booking.pid=panel.pid " \
-                   "WHERE panel_source.img_no='1'" \
-                   "AND panel.region='{}' " \
-                   "AND mode='{}' " \
-                   "AND booking.date_from>=concat('{}', '-01') " \
-                   "AND booking.date_to<=concat('{}', '-01') " \
-                   "AND panel.airtime_rate BETWEEN '{}' AND '{}' " \
-                   "GROUP BY panel.pid". format(region, mode, date_from, date_to, min_price, max_price)
+                   "WHERE panel.region='{}' " \
+                   "AND panel_source.img_no='1'" \
+                   "AND panel.mode='{}' " \
+                   "AND panel_usage.used<panel.cap " \
+                   "AND panel.airtime_rate BETWEEN '{}' AND '{}'".format(region, mode, min_price, max_price)
 
     return db_connect.execute_select(select_query)

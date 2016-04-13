@@ -21,6 +21,7 @@
                             <th data-field="date_from" data-sortable="true">Date From</th>
                             <th data-field="date_to" data-sortable="true">Date To</th>
                             <th data-field="panel_name" data-sortable="true">Panel Name</th>
+                            <th data-field="panel-image">Panel Image</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,7 +31,9 @@
                                 <td>{{ item.date_from }}</td>
                                 <td>{{ item.date_to }}</td>
                                 <td>{{ item.name }}</td>
-
+                                <td><img class="center-block"
+                                     src="{{ url_for('static', filename='img/' + item.panel_path) }}"
+                                     height="200" width="300" style="margin-bottom: 30px;"></td>
                             </tr>
                         {% endfor %}
                         </tbody>

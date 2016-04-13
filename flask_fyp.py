@@ -52,16 +52,29 @@ def quicksearch():
 
     if request.method == 'POST':
         session['region'] = request.form['region']
+        session['mode'] = request.form['mode']
         session['date_from'] = request.form['date_from']
         session['date_to'] = request.form['date_to']
-        session['mode'] = request.form['mode']
         session['min_price'] = request.form['min_price']
         session['max_price'] = request.form['max_price']
 
     return render_template('pages/quicksearch.html',
                            title='Quicksearch',
-                           suitable_panel=db_control.get_all_panel_by_preference(session['region'], session['mode'], session['date_from'],
-                                                                                 session['date_to'], session['min_price'], session['max_price']))
+                           suitable_panel=db_control.get_all_panel_by_preference(session['region'], session['mode'],
+                                                                                 session['min_price'], session['max_price']))
+
+
+@app.route('/refresh', methods=['POST'])
+def refresh():
+    print request.form['region']
+    print request.form['mode']
+    print request.form['min_price']
+    print request.form['max_price']
+    rows = db_control.get_all_panel_by_preference(request.form['region'], request.form['mode'], request.form['min_price'], request.form['max_price'])
+    results = {idx: rows[idx] for idx in range(0, len(rows))}
+    return jsonify(results)
+
+
 
 
 @app.route('/location')
@@ -108,6 +121,7 @@ def payment():
         session['file_path'] = f.filename
         file_path = os.path.join(prefix_path, secure_filename(f.filename))
         f.save(file_path)
+
 
         return render_template('pages/payment.html',
                                title='Payment',
@@ -247,7 +261,15 @@ def read_csv():
     with open(file_path, 'rb') as inFile:
         reader = csv.reader(inFile)
         for row in reader:
-            db_control.insert_panel_detail((",".join(row)))
+            if row[9] == 'sole':
+                cap = 1
+            elif row[9] == '1-5':
+                cap = 5
+            else:
+                cap = 10
+
+            db_control.insert_panel_detail(row[0], row[1], row[2], row[3], row[4], row[5], row[6],
+                                           row[7], row[8], row[9], cap, row[10], row[11])
 
     return redirect(url_for('quickstart'))
 

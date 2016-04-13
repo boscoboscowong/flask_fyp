@@ -14,7 +14,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/flask_fyp$flask_fyp.coverage" NAME="flask_fyp Coverage Results" MODIFIED="1460534579752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/flask_fyp$flask_fyp.coverage" NAME="flask_fyp Coverage Results" MODIFIED="1460558968430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/flask_fyp$test_db.coverage" NAME="test_db Coverage Results" MODIFIED="1460451987802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -25,7 +25,148 @@
     <favorites_list name="flask_fyp" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="db_control.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/database/db_control.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                    <marker date="1460543112498" expanded="true" signature="257:371" placeholder="SELECT COUNT... login" />
+                    <marker date="1460543112498" expanded="true" signature="529:600" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="811:931" placeholder="INSERT INTO login... " />
+                    <marker date="1460543112498" expanded="true" signature="956:988" placeholder="INSERT INTO user_frequency... " />
+                    <marker date="1460543112498" expanded="true" signature="956:1040" placeholder="INSERT INTO user_freq... " />
+                    <marker date="1460543112498" expanded="true" signature="1229:1392" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="1763:2131" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="2716:3025" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="3642:3711" placeholder="SELECT panel... panel_source" />
+                    <marker date="1460543112498" expanded="true" signature="4037:4250" placeholder="SELECT booki... login" />
+                    <marker date="1460543112498" expanded="true" signature="4427:4827" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5437:5802" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6035" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6076" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6082" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6085" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6091" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6111" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="5990:6156" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="6321:6357" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="6321:6416" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="6321:6429" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="6321:6459" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="6321:6474" placeholder="SELECT login... login" />
+                    <marker date="1460543112498" expanded="true" signature="6727:6861" placeholder="INSERT INTO booking... " />
+                    <marker date="1460543112498" expanded="true" signature="6887:7009" placeholder="INSERT INTO file_source... " />
+                    <marker date="1460543112498" expanded="true" signature="7304:7415" placeholder="UPDATE panel... " />
+                    <marker date="1460543112498" expanded="true" signature="7575:7633" placeholder="UPDATE user_... " />
+                    <marker date="1460543112498" expanded="true" signature="7575:7663" placeholder="UPDATE user_... " />
+                    <marker date="1460543112498" expanded="true" signature="7575:7674" placeholder="UPDATE user_... " />
+                    <marker date="1460543112498" expanded="true" signature="7575:7682" placeholder="UPDATE user_... " />
+                    <marker date="1460543112498" expanded="true" signature="7996:8139" placeholder="INSERT INTO panel... " />
+                    <marker date="1460543112498" expanded="true" signature="7996:8219" placeholder="INSERT INTO panel... " />
+                    <marker date="1460543112498" expanded="true" signature="7996:8220" placeholder="INSERT INTO panel... " />
+                    <marker date="1460543112498" expanded="true" signature="7996:8237" placeholder="INSERT INTO panel... " />
+                    <marker date="1460543112498" expanded="true" signature="8327:8376" placeholder="INSERT INTO panel_source... " />
+                    <marker date="1460543112498" expanded="true" signature="8327:8435" placeholder="INSERT INTO panel_source... " />
+                    <marker date="1460543112498" expanded="true" signature="8327:8436" placeholder="INSERT INTO panel_source... " />
+                    <marker date="1460543112498" expanded="true" signature="8327:8488" placeholder="INSERT INTO panel_source... " />
+                    <marker date="1460543112498" expanded="true" signature="8514:8548" placeholder="INSERT INTO panel_usage... " />
+                    <marker date="1460543112498" expanded="true" signature="8514:8600" placeholder="INSERT INTO panel_usage... " />
+                    <marker date="1460543112498" expanded="true" signature="9006:9060" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9095" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9117" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9126" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9156" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9161" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9167" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9173" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9206" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9236" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9237" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9250" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9260" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9338" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9006:9356" placeholder="SELECT booki... booking" />
+                    <marker date="1460543112498" expanded="true" signature="9536:9904" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="9536:9930" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="9536:9936" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="9536:9937" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10633" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10673" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10681" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10690" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10691" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10711" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10778" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10787" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10835" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:10930" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:11013" placeholder="SELECT panel... panel" />
+                    <marker date="1460543112498" expanded="true" signature="10577:11054" placeholder="SELECT panel... panel" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quicksearch.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5261283">
+                  <caret line="214" column="56" selection-start-line="214" selection-start-column="56" selection-end-line="214" selection-end-column="56" />
+                  <folding>
+                    <element signature="e#5343#5383#0#HTML" expanded="true" />
+                    <element signature="e#5778#5806#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="payment.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/pages/payment.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-19.222221">
+                  <caret line="359" column="39" selection-start-line="359" selection-start-column="39" selection-end-line="359" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="flask_fyp.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/flask_fyp.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="70" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#0#93#0" expanded="true" />
+                    <element signature="e#3599#4651#0" expanded="false" />
+                    <element signature="e#6869#8113#0" expanded="false" />
+                    <element signature="e#8309#9026#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="quicksearch.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.34204274">
+                  <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,17 +205,18 @@
         <option value="$PROJECT_DIR$/templates/template.html" />
         <option value="$PROJECT_DIR$/test/test_db.py" />
         <option value="$PROJECT_DIR$/templates/pages/csv.html" />
-        <option value="$PROJECT_DIR$/templates/pages/detail.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/database_class/panel.py" />
         <option value="$PROJECT_DIR$/templates/pages/booking.html" />
         <option value="$PROJECT_DIR$/templates/pages/payment.html" />
-        <option value="$PROJECT_DIR$/templates/pages/quicksearch.html" />
         <option value="$PROJECT_DIR$/templates/pages/quickstart.html" />
         <option value="$PROJECT_DIR$/templates/pages/supplier.html" />
         <option value="$PROJECT_DIR$/templates/pages/location.html" />
-        <option value="$PROJECT_DIR$/flask_fyp.py" />
+        <option value="$PROJECT_DIR$/templates/pages/detail.html" />
         <option value="$PROJECT_DIR$/database/db_control.py" />
+        <option value="$PROJECT_DIR$/database_class/panel_upload.py" />
+        <option value="$PROJECT_DIR$/flask_fyp.py" />
+        <option value="$PROJECT_DIR$/templates/pages/quicksearch.html" />
       </list>
     </option>
   </component>
@@ -136,6 +278,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -196,13 +339,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="database_class" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flask_fyp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flask_fyp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -480,28 +636,48 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09115139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34336677" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986637" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.344098" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986637" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34336677" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09221748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3986637" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -516,23 +692,33 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/database/db_control.py</url>
+          <line>141</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/database/db_control.py</url>
+          <line>150</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/db_control.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flask_fyp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -568,7 +754,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -590,7 +781,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,7 +808,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,7 +835,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -649,7 +855,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -807,55 +1018,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26215896">
-          <caret line="22" column="92" selection-start-line="22" selection-start-column="92" selection-end-line="22" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database_class/panel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4586207">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/booking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3558719">
-          <caret line="225" column="68" selection-start-line="225" selection-start-column="68" selection-end-line="225" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40569395">
-          <caret line="305" column="25" selection-start-line="305" selection-start-column="25" selection-end-line="305" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/csv.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59786475">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/quickstart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52313167">
-          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1174378">
-          <caret line="141" column="16" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/location.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.9259257">
@@ -871,81 +1033,156 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4513064">
+          <caret line="22" column="85" selection-start-line="22" selection-start-column="85" selection-end-line="22" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/quickstart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24940617">
+          <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/booking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7458432">
+          <caret line="241" column="66" selection-start-line="241" selection-start-column="66" selection-end-line="241" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/csv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.666666">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database_class/panel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45914844">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/db_control.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6413794">
-          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="213" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1460535172347" expanded="true" signature="257:371" placeholder="SELECT COUNT... login" />
-            <marker date="1460535172347" expanded="true" signature="529:600" placeholder="SELECT login... login" />
-            <marker date="1460535172347" expanded="true" signature="811:931" placeholder="INSERT INTO login... " />
-            <marker date="1460535172347" expanded="true" signature="956:988" placeholder="INSERT INTO user_frequency... " />
-            <marker date="1460535172347" expanded="true" signature="956:1040" placeholder="INSERT INTO user_freq... " />
-            <marker date="1460535172347" expanded="true" signature="1229:1392" placeholder="SELECT login... login" />
-            <marker date="1460535172347" expanded="true" signature="1763:2075" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="2660:2969" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="3586:3655" placeholder="SELECT panel... panel_source" />
-            <marker date="1460535172347" expanded="true" signature="3981:4194" placeholder="SELECT booki... login" />
-            <marker date="1460535172347" expanded="true" signature="4374:4718" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="5328:5693" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="5965:6099" placeholder="INSERT INTO booking... " />
-            <marker date="1460535172347" expanded="true" signature="6125:6247" placeholder="INSERT INTO file_source... " />
-            <marker date="1460535172347" expanded="true" signature="6542:6653" placeholder="UPDATE panel... " />
-            <marker date="1460535172347" expanded="true" signature="6813:6871" placeholder="UPDATE user_... " />
-            <marker date="1460535172347" expanded="true" signature="6813:6901" placeholder="UPDATE user_... " />
-            <marker date="1460535172347" expanded="true" signature="6813:6912" placeholder="UPDATE user_... " />
-            <marker date="1460535172347" expanded="true" signature="6813:6920" placeholder="UPDATE user_... " />
-            <marker date="1460535172347" expanded="true" signature="7234:7377" placeholder="INSERT INTO panel... " />
-            <marker date="1460535172347" expanded="true" signature="7234:7457" placeholder="INSERT INTO panel... " />
-            <marker date="1460535172347" expanded="true" signature="7234:7458" placeholder="INSERT INTO panel... " />
-            <marker date="1460535172347" expanded="true" signature="7234:7475" placeholder="INSERT INTO panel... " />
-            <marker date="1460535172347" expanded="true" signature="7565:7614" placeholder="INSERT INTO panel_source... " />
-            <marker date="1460535172347" expanded="true" signature="7565:7673" placeholder="INSERT INTO panel_source... " />
-            <marker date="1460535172347" expanded="true" signature="7565:7674" placeholder="INSERT INTO panel_source... " />
-            <marker date="1460535172347" expanded="true" signature="7565:7726" placeholder="INSERT INTO panel_source... " />
-            <marker date="1460535172347" expanded="true" signature="7752:7786" placeholder="INSERT INTO panel_usage... " />
-            <marker date="1460535172347" expanded="true" signature="7752:7838" placeholder="INSERT INTO panel_usage... " />
-            <marker date="1460535172347" expanded="true" signature="8244:8298" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8333" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8355" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8364" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8394" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8399" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8405" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8411" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8444" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8474" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8475" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8488" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8498" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8576" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8244:8594" placeholder="SELECT booki... booking" />
-            <marker date="1460535172347" expanded="true" signature="8774:9086" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="8774:9112" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="8774:9118" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="8774:9119" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10003" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10046" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10062" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10125" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10128" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10149" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10170" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10208" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10340" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10342" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10409" placeholder="SELECT panel... panel" />
-            <marker date="1460535172347" expanded="true" signature="9779:10452" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="257:371" placeholder="SELECT COUNT... login" />
+            <marker date="1460543112498" expanded="true" signature="529:600" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="811:931" placeholder="INSERT INTO login... " />
+            <marker date="1460543112498" expanded="true" signature="956:988" placeholder="INSERT INTO user_frequency... " />
+            <marker date="1460543112498" expanded="true" signature="956:1040" placeholder="INSERT INTO user_freq... " />
+            <marker date="1460543112498" expanded="true" signature="1229:1392" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="1763:2131" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="2716:3025" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="3642:3711" placeholder="SELECT panel... panel_source" />
+            <marker date="1460543112498" expanded="true" signature="4037:4250" placeholder="SELECT booki... login" />
+            <marker date="1460543112498" expanded="true" signature="4427:4827" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5437:5802" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="5990:6035" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6076" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6082" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6085" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6091" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6111" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="5990:6156" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="6321:6357" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="6321:6416" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="6321:6429" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="6321:6459" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="6321:6474" placeholder="SELECT login... login" />
+            <marker date="1460543112498" expanded="true" signature="6727:6861" placeholder="INSERT INTO booking... " />
+            <marker date="1460543112498" expanded="true" signature="6887:7009" placeholder="INSERT INTO file_source... " />
+            <marker date="1460543112498" expanded="true" signature="7304:7415" placeholder="UPDATE panel... " />
+            <marker date="1460543112498" expanded="true" signature="7575:7633" placeholder="UPDATE user_... " />
+            <marker date="1460543112498" expanded="true" signature="7575:7663" placeholder="UPDATE user_... " />
+            <marker date="1460543112498" expanded="true" signature="7575:7674" placeholder="UPDATE user_... " />
+            <marker date="1460543112498" expanded="true" signature="7575:7682" placeholder="UPDATE user_... " />
+            <marker date="1460543112498" expanded="true" signature="7996:8139" placeholder="INSERT INTO panel... " />
+            <marker date="1460543112498" expanded="true" signature="7996:8219" placeholder="INSERT INTO panel... " />
+            <marker date="1460543112498" expanded="true" signature="7996:8220" placeholder="INSERT INTO panel... " />
+            <marker date="1460543112498" expanded="true" signature="7996:8237" placeholder="INSERT INTO panel... " />
+            <marker date="1460543112498" expanded="true" signature="8327:8376" placeholder="INSERT INTO panel_source... " />
+            <marker date="1460543112498" expanded="true" signature="8327:8435" placeholder="INSERT INTO panel_source... " />
+            <marker date="1460543112498" expanded="true" signature="8327:8436" placeholder="INSERT INTO panel_source... " />
+            <marker date="1460543112498" expanded="true" signature="8327:8488" placeholder="INSERT INTO panel_source... " />
+            <marker date="1460543112498" expanded="true" signature="8514:8548" placeholder="INSERT INTO panel_usage... " />
+            <marker date="1460543112498" expanded="true" signature="8514:8600" placeholder="INSERT INTO panel_usage... " />
+            <marker date="1460543112498" expanded="true" signature="9006:9060" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9095" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9117" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9126" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9156" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9161" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9167" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9173" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9206" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9236" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9237" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9250" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9260" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9338" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9006:9356" placeholder="SELECT booki... booking" />
+            <marker date="1460543112498" expanded="true" signature="9536:9904" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="9536:9930" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="9536:9936" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="9536:9937" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10633" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10673" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10681" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10690" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10691" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10711" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10778" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10787" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10835" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:10930" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:11013" placeholder="SELECT panel... panel" />
+            <marker date="1460543112498" expanded="true" signature="10577:11054" placeholder="SELECT panel... panel" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.222221">
+          <caret line="359" column="39" selection-start-line="359" selection-start-column="39" selection-end-line="359" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flask_fyp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15517241">
-          <caret line="230" column="17" selection-start-line="230" selection-start-column="17" selection-end-line="230" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#93#0" expanded="true" />
+            <element signature="e#3599#4651#0" expanded="false" />
+            <element signature="e#6869#8113#0" expanded="false" />
+            <element signature="e#8309#9026#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5261283">
+          <caret line="214" column="56" selection-start-line="214" selection-start-column="56" selection-end-line="214" selection-end-column="56" />
+          <folding>
+            <element signature="e#5343#5383#0#HTML" expanded="true" />
+            <element signature="e#5778#5806#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
