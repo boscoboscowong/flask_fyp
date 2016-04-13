@@ -1,5 +1,5 @@
 {% extends  'template.html' %}
-{% set active_page='reserve' %}
+{% set active_page='quickstart' %}
 
 
 {% block external_css %}
@@ -8,29 +8,31 @@
 
 {% block body %}
     <div class="row">
-    <!--left hand side-->
-        <!--preference panel-->
+        <!--left hand side-->
         <div class="col-lg-6">
+            <!--preference panel-->
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <svg class="glyph stroked checkmark">
-                        <use xlink:href="#stroked-checkmark"/></svg>Preference
+                        <use xlink:href="#stroked-checkmark"/>
+                    </svg>
+                    Preference
                 </div>
                 <div class="panel-body">
                     <form>
                         <div class="form-group" id="file_type">
                             <label>Region</label>
-                            <select required class="form-control" name="region" >
+                            <select required class="form-control" name="region" autofocus="">
                                 <option selected disabled>{{ session['region'] }}</option>
-                                <option>HK Island</option>
-                                <option>Kowloon</option>
+                                <option>HKI</option>
+                                <option>KLN</option>
                                 <option>NT</option>
                             </select>
                         </div>
                         <hr>
                         <div class="form-group">
                             <label>Business Mode</label>
-                            <select required class="form-control" name="cap">
+                            <select required class="form-control" name="cap" autofocus="">
                                 <option selected disabled>{{ session['cap'] }}</option>
                                 <option>sole</option>
                                 <option>1-5</option>
@@ -42,44 +44,92 @@
                             <div class="col-lg-6">
                                 <div class="input-group date">
                                     <label class="control-label">Date From</label>
-                                    <input type="text" class="form-control form-control-1 input-sm from" name="date_from"  placeholder="{{ session['date_from'] }}">
+                                    <input autofocus="" type="text" class="form-control form-control-1 input-sm from"
+                                           name="date_from"
+                                           placeholder="{{ session['date_from'] }}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="input-group date">
-                                     <label class="control-label">Date To</label>
-                                     <input type="text" class="form-control form-control-1 input-sm from" name="date_to" placeholder="{{ session['date_to'] }}">
+                                    <label class="control-label">Date To</label>
+                                    <input autofocus="" type="text" class="form-control form-control-1 input-sm from"
+                                           name="date_to"
+                                           placeholder="{{ session['date_to'] }}">
                                 </div>
+                                <br>
+                                <hr>
                             </div>
                         </div>
-                        <br><br>
-                        <div class="form-group">
-                            <input tp
+                        <div class="form-inline">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Min Price</label>
+                                    <select required class="form-control" name="min_price" autofocus="">
+                                        <option selected disabled>{{ session['min_price'] }}</option>
+                                        <option>0</option>
+                                        <option>100000</option>
+                                        <option>200000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Max. Price</label>
+                                    <select required class="form-control" name="max_price" autofocus="">
+                                        <option selected disabled>{{ session['max_price'] }}</option>
+                                        <option>100000</option>
+                                        <option>200000</option>
+                                        <option>300000</option>
+                                    </select>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-lg-offset-10">
+                            <button type="submit" class="btn btn-warning btn-group btn-group-justified">
+                                <strong>Refresh</strong></button>
                         </div>
                     </form>
                 </div>
             </div>
             <!--/preference panel-->
 
-        <!--result panel-->
+            <!--result panel-->
+
             <div class="panel panel-info">
                 <div class="panel-heading">
-                   <svg class="glyph stroked tag">
-                       <use xlink:href="#stroked-tag"/></svg>Quicksearch
+                    <svg class="glyph stroked tag">
+                        <use xlink:href="#stroked-tag"/>
+                    </svg>
+                    Quicksearch
                 </div>
-                <div class="panel-body">
-
+                <div class="panel-body" style="height: 400px; overflow-y:scroll">
+                    {% for item in suitable_panel %}
+                        <div class="col-lg-6">
+                            <div class="hovereffect">
+                                <img class="center-block"
+                                     src="{{ url_for('static', filename='img/' + item.panel_path) }}"
+                                     height="200" width="300" style="margin-bottom: 30px;">
+                                <a href="/booking?pid={{ item.pid }}">
+                                    <div class="overlay">
+                                        <h2>{{ item.name }}</h2>
+                                        <h2>HKD {{ item.airtime_rate }}</h2>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-        <!--/result panel-->
+            <!--/result panel-->
         </div>
-    <!--/left hand side-->
+        <!--/left hand side-->
 
-    <!--right hand side-->
+        <!--right hand side-->
         <div class="col-lg-6">
-            <div id="map-show"></div>
+            <div id="map"></div>
         </div>
-    <!--right hand side-->
+        <!--right hand side-->
     </div>
 {% endblock %}
 
@@ -88,56 +138,61 @@
     <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
 
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script>
-            function init_map() {
-                var var_location = new google.maps.LatLng(22.2863939, 114.1515148);
+    <script>
+        var locations = [
+            {% for item in suitable_panel %}
+                ['{{ item.name }}', {{ item.latitude }}, {{ item.longitude }}],
+            {% endfor %}
+            ['Maroubra Beach', -33.950198, 151.259302, 1]
+        ];
 
-                var var_mapoptions = {
-                    center: var_location,
-                    zoom: 13
-                };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: new google.maps.LatLng(22.2863939, 114.1515148),
+        });
 
-                var var_marker = new google.maps.Marker({
-                    position: var_location,
-                    map: var_map,
-                    title: "Venice"
-                });
+        var infowindow = new google.maps.InfoWindow();
 
-                var var_map = new google.maps.Map(document.getElementById("map-show"),
-                        var_mapoptions);
+        var marker, i;
 
-                var_marker.setMap(var_map);
-
-            }
-
-            google.maps.event.addDomListener(window, 'load', init_map);
-        </script>
-
-        <script>
-            var startDate = new Date();
-            var fechaFin = new Date();
-            var FromEndDate = new Date();
-            var ToEndDate = new Date();
-
-
-            $('.from').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                startDate = new Date(selected.date.valueOf());
-                startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-                $('.to').datepicker('setStartDate', startDate);
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
             });
 
-            $('.to').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                FromEndDate = new Date(selected.date.valueOf());
-                FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-                $('.from').datepicker('setEndDate', FromEndDate);
-            });
-        </script>
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+
+        var startDate = new Date();
+        var fechaFin = new Date();
+        var FromEndDate = new Date();
+        var ToEndDate = new Date();
+
+
+        $('.from').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            startDate = new Date(selected.date.valueOf());
+            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+            $('.to').datepicker('setStartDate', startDate);
+        });
+
+        $('.to').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            FromEndDate = new Date(selected.date.valueOf());
+            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+            $('.from').datepicker('setEndDate', FromEndDate);
+        });
+    </script>
 {% endblock %}

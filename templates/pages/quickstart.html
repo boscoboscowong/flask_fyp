@@ -54,17 +54,17 @@
         <form class="form-horizontal" action="quicksearch" method="post">
             <div class="col-lg-2">
                 <label class="control-label">Region</label>
-                <select required class="form-control" id="region" name="region">
+                <select required class="form-control" id="region" name="region" autofocus="">
                     <option disabled selected>Region</option>
-                    <option>HK Island</option>
-                    <option>Kowloon</option>
+                    <option>HKI</option>
+                    <option>KLN</option>
                     <option>NT</option>
                 </select>
             </div>
 
             <div class="col-lg-2">
                 <label class="control-label">Business Mde</label>
-                <select required class="form-control" id="cap" name="cap">
+                <select required class="form-control" id="cap" name="cap" autofocus="">
                     <option disabled selected>Business Mode</option>
                     <option>Sole</option>
                     <option>1-5</option>
@@ -72,19 +72,41 @@
                 </select>
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-1">
                 <label class="control-label">Date From</label>
-                 <input type="text" class="form-control form-control-1 input-sm from" name="date_from"  placeholder="Date From">
+                <input type="text" class="form-control form-control-1 input-sm from" name="date_from"
+                       placeholder="Date From" autofocus="">
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-1">
                 <label class="control-label">Date To</label>
-                <input type="text" class="form-control form-control-1 input-sm from" name="date_to" placeholder="Date To">
+                <input type="text" class="form-control form-control-1 input-sm from" name="date_to"
+                       placeholder="Date To" autofocus="">
             </div>
 
             <div class="col-lg-2">
+                <label class="control-label">Min. Price</label>
+                <select required class="form-control" name="min_price" autofocus="">
+                    <option disabled selected>Min. Price</option>
+                    <option>0</option>
+                    <option>100000</option>
+                    <option>200000</option>
+                </select>
+            </div>
+
+            <div class="col-lg-2">
+                <label>Max. Price</label>
+                <select required class="form-control" name="max_price" autofocus="">
+                    <option selected disabled>Max. Price</option>
+                    <option>100000</option>
+                    <option>200000</option>
+                    <option>300000</option>
+                </select>
+            </div>
+            <div class="col-lg-2">
                 <label>&emsp;</label>
-                <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Quick Searching</strong></button>
+                <button type="submit" class="btn btn-danger btn-group btn-group-justified"><strong>Quick
+                    Searching</strong></button>
             </div>
         </form>
     </div>
@@ -125,31 +147,31 @@
     <script src="{{ url_for('static', filename='js/datepicker.min.js') }}"></script>
 
 
-        <script>
-            var startDate = new Date();
-            var fechaFin = new Date();
-            var FromEndDate = new Date();
-            var ToEndDate = new Date();
+    <script>
+        var startDate = new Date();
+        var fechaFin = new Date();
+        var FromEndDate = new Date();
+        var ToEndDate = new Date();
 
 
-            $('.from').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                startDate = new Date(selected.date.valueOf());
-                startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
-                $('.to').datepicker('setStartDate', startDate);
-            });
+        $('.from').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            startDate = new Date(selected.date.valueOf());
+            startDate.setDate(startDate.getDate(new Date(selected.date.valueOf())));
+            $('.to').datepicker('setStartDate', startDate);
+        });
 
-            $('.to').datepicker({
-                autoclose: true,
-                minViewMode: 1,
-                format: 'mm-yyyy'
-            }).on('changeDate', function (selected) {
-                FromEndDate = new Date(selected.date.valueOf());
-                FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
-                $('.from').datepicker('setEndDate', FromEndDate);
-            });
-        </script>
+        $('.to').datepicker({
+            autoclose: true,
+            minViewMode: 1,
+            format: 'yyyy-mm'
+        }).on('changeDate', function (selected) {
+            FromEndDate = new Date(selected.date.valueOf());
+            FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
+            $('.from').datepicker('setEndDate', FromEndDate);
+        });
+    </script>
 {% endblock %}

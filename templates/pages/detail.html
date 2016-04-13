@@ -17,14 +17,23 @@
                            data-sort-order="desc">
                         <thead>
                         <tr>
-                            <th data-field="state" data-checkbox="true"></th>
                             <th data-field="bid" data-sortable="true">Booking ID</th>
                             <th data-field="date_from" data-sortable="true">Date From</th>
                             <th data-field="date_to" data-sortable="true">Date To</th>
                             <th data-field="panel_name" data-sortable="true">Panel Name</th>
-                            <th data-field="panel_detail">Panel Details</th>
                         </tr>
                         </thead>
+                        <tbody>
+                        {% for item in booking_detail %}
+                            <tr>
+                                <td>{{ item.bid }}</td>
+                                <td>{{ item.date_from }}</td>
+                                <td>{{ item.date_to }}</td>
+                                <td>{{ item.name }}</td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
                     </table>
                 </div>
             </div>

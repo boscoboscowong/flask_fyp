@@ -27,7 +27,9 @@ def get_user_uid(username):
 """upload register data in register.html"""
 def insert_a_row_to_login_table(username, pwd, company_name, email, tel):
     insert_query = "INSERT INTO login (username, pwd, company_name, email, tel) " \
-                   "VALUE ('{}', '{}', '{}', '{}', '{}')".format(username, pwd, company_name, email, tel)
+                   "VALUE ('{}', '{}', '{}', '{}', '{}');" \
+                   "INSERT INTO user_freq(uid, freq) " \
+                   "VALUES(LAST_INSERT_ID(), 0)".format(username, pwd, company_name, email, tel)
 
     return db_connect.execute_insert(insert_query)
 
@@ -35,14 +37,14 @@ def insert_a_row_to_login_table(username, pwd, company_name, email, tel):
 
 """user detail in profile.html"""
 def get_user_detail(username):
-    select_query = "SELECT login.*, user_frequency.frequency FROM login " \
-                   "INNER JOIN user_frequency ON login.uid=user_frequency.uid " \
+    select_query = "SELECT login.*, user_freq.freq FROM login " \
+                   "INNER JOIN user_freq ON login.uid=user_freq.uid " \
                    "WHERE login.username='{}'".format(username)
 
     user_list = []
     for row in db_connect.execute_select(select_query):
         user_list.append(User(row['uid'], row['username'], row['pwd'], row['company_name'],
-                              row['email'], row['tel'], row['frequency']))
+                              row['email'], row['tel'], row['freq']))
 
     return user_list
 
@@ -112,6 +114,28 @@ def get_all_booking_of_panel(pid):
 
 
 
+"""only show 3 panel detail in quickstart.html"""
+def get_panel_detail_by_region_limit_3():
+    select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
+                   "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
+                   "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
+                   "WHERE panel_source.img_no='1'" \
+                   "ORDER BY panel.region " \
+                   "LIMIT 3"
+
+    panel_list = []
+    for row in db_connect.execute_select(select_query):
+        panel_list.append(Panel(row['pid'], row['name'], row['region'],
+                                row['location'], row['latitude'], row['longitude'],
+                                row['height'], row['width'], row['airtime_rate'],
+                                row['pedestrain_flow'], row['cap'], row['img_no'],
+                                row['panel_path'], row['used']))
+
+    return panel_list
+
+
+
+
 """demo display in payment.html"""
 def get_all_file_of_panel(pid, date_from, date_to):
     select_query = "SELECT booking.*, file_source.file_path FROM booking " \
@@ -142,3 +166,82 @@ def update_1_to_panel_usage(pid):
                    "WHERE panel_usage.pid='{}'".format(pid)
 
     return db_connect.execute_update(update_query)
+
+
+"""+1 to the user_freq in login.html"""
+def update_1_to_user_freq(uid):
+    update_query = "UPDATE user_freq " \
+                   "SET freq = freq+1 " \
+                   "WHERE user_freq.uid='{}'".format(uid)
+
+    return db_connect.execute_update(update_query)
+
+
+"""upload panel detail in supplier.html"""
+def insert_panel_detail(panel_name, region, location, latitude, longitude, height,
+                        width, airtime_rate, pedestrain_flow, business_mode, file_path_1, file_path_2):
+    insert_query = "INSERT INTO panel(name, region, location, latitude, " \
+                   "longitude, height, width, airtime_rate, pedestrain_flow, cap) " \
+                   "VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}'); " \
+                   "SET @last_insert_pid = LAST_INSERT_ID();" \
+                   "INSERT INTO panel_source(pid, img_no, panel_path) " \
+                   "VALUES (@last_insert_pid, 1, '{}'), " \
+                   "(@last_insert_pid, 2, '{}'); " \
+                   "INSERT INTO panel_usage(pid, used) " \
+                   "VALUES(@last_insert_pid, 0)".format(panel_name, region, location, latitude,
+                                                        longitude, height, width, airtime_rate, pedestrain_flow,
+                                                        business_mode, file_path_1, file_path_2)
+
+    return db_connect.execute_insert(insert_query)
+
+
+
+"""get all booking detail in detail.html"""
+def get_all_booking_detail(uid):
+    select_query = "SELECT booking.*, panel.*, panel_source.* FROM booking " \
+                   "INNER JOIN panel ON booking.pid=panel.pid " \
+                   "INNER JOIN panel_source ON panel_source.pid=booking.pid " \
+                   "WHERE panel_source.img_no='1' " \
+                   "AND booking.uid='{}' " \
+                   "ORDER BY booking.date_from".format(uid)
+
+    return db_connect.execute_select(select_query)
+
+
+
+"""only show 9 panel detail in quickstart.html"""
+def get_panel_detail_by_region_limit_9():
+    select_query = "SELECT panel.*, panel_source.*, panel_usage.used FROM panel " \
+                   "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
+                   "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
+                   "WHERE panel_source.img_no='1'" \
+                   "ORDER BY panel.region " \
+                   "LIMIT 9"
+
+    panel_list = []
+    for row in db_connect.execute_select(select_query):
+        panel_list.append(Panel(row['pid'], row['name'], row['region'],
+                                row['location'], row['latitude'], row['longitude'],
+                                row['height'], row['width'], row['airtime_rate'],
+                                row['pedestrain_flow'], row['cap'], row['img_no'],
+                                row['panel_path'], row['used']))
+
+    return panel_list
+
+
+
+"""get all suitable panel in quicksearch.html"""
+def get_all_panel_by_preference(region, cap, date_from, date_to, min_price, max_price):
+    select_query = "SELECT panel.*, panel_source.*, panel_usage.used, booking.* FROM panel " \
+                   "INNER JOIN panel_source ON panel_source.pid=panel.pid " \
+                   "INNER JOIN panel_usage ON panel_usage.pid=panel.pid " \
+                   "INNER JOIN booking ON booking.pid=panel.pid " \
+                   "WHERE panel_source.img_no='1'" \
+                   "AND panel.region='{}' " \
+                   "AND cap='{}' " \
+                   "AND booking.date_from>=concat('{}', '-01') " \
+                   "AND booking.date_to<=concat('{}', '-01') " \
+                   "AND panel.airtime_rate BETWEEN '{}' AND '{}' " \
+                   "GROUP BY panel.pid". format(region, cap, date_from, date_to, min_price, max_price)
+
+    return db_connect.execute_select(select_query)

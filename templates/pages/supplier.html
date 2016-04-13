@@ -1,0 +1,95 @@
+{% extends 'template.html' %}
+{% set active_page='supplier' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-body">
+                <form role="form" action="panel_upload" method="post" enctype="multipart/form-data">
+                    <fieldset>
+                        <div class="form-group">
+                            <label>Panel Name</label>
+                            <input class="form-control" id="panel_name" placeholder="Panel Name" name="panel_name"
+                                   type="text"
+                                   autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Region</label>
+                            <select required class="form-control" id="region" name="region" autofocus="">
+                                <option disabled selected>Region</option>
+                                <option>HKI</option>
+                                <option>KLN</option>
+                                <option>NT</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <textarea class="form-control" id="location" name="location" rows="3"
+                                      autofocus=""></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Latitude</label>
+                            <input class="form-control" id="latitude" placeholder="Latitude" name="latitude" type="text"
+                                   autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>Longitude</label>
+                            <input class="form-control" id="longitude" placeholder="Longitude" name="longitude"
+                                   type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>Panel Height</label>
+                            <input class="form-control" id="height" placeholder="Panel Height" name="height" type="text"
+                                   autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>Panel Width</label>
+                            <input class="form-control" id="width" placeholder="Panel Width" name="width" type="text"
+                                   autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>Airtime Rate</label>
+                            <input class="form-control" id="airtime_rate" placeholder="Airtime Rate" name="airtime_rate"
+                                   type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>Pedestrain Flow</label>
+                            <input class="form-control" id="pedestrain_flow" placeholder="Pedestrain Flow"
+                                   name="pedestrain_flow" type="text" autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Business Mde</label>
+                            <select required class="form-control" id="cap" name="cap">
+                                <option disabled selected>Business Mode</option>
+                                <option>Sole</option>
+                                <option>1-5</option>
+                                <option>1-10</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>File Input_1</label>
+                            <input type="file" name="file_path_1"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>File Input_2</label>
+                            <input type="file" name="file_path_2"/>
+                        </div>
+                        <span style="color: orange"><strong># It is needed to provide two image for the panel</strong></span>
+                        <hr>
+                        <input type="submit" class="btn btn-primary" value="Create Panel">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <a href="/csv" class="btn btn-success">CSV Upload</a>
+            </div>
+        </div>
+    </div><!-- /.col-->
+</div><!-- /.row -->
+{% endblock %}
+
+{% block external_js %}
+    <script src="{{ url_for('static', filename = 'js/location_tab/show_region.js') }}"></script>
+{% endblock %}
