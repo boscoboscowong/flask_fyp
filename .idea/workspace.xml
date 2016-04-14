@@ -14,7 +14,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/flask_fyp$flask_fyp.coverage" NAME="flask_fyp Coverage Results" MODIFIED="1460558968430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/flask_fyp$flask_fyp.coverage" NAME="flask_fyp Coverage Results" MODIFIED="1460646502366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/flask_fyp$test_db.coverage" NAME="test_db Coverage Results" MODIFIED="1460451987802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -25,148 +25,30 @@
     <favorites_list name="flask_fyp" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="db_control.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/database/db_control.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#0#31#0" expanded="true" />
-                    <marker date="1460543112498" expanded="true" signature="257:371" placeholder="SELECT COUNT... login" />
-                    <marker date="1460543112498" expanded="true" signature="529:600" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="811:931" placeholder="INSERT INTO login... " />
-                    <marker date="1460543112498" expanded="true" signature="956:988" placeholder="INSERT INTO user_frequency... " />
-                    <marker date="1460543112498" expanded="true" signature="956:1040" placeholder="INSERT INTO user_freq... " />
-                    <marker date="1460543112498" expanded="true" signature="1229:1392" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="1763:2131" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="2716:3025" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="3642:3711" placeholder="SELECT panel... panel_source" />
-                    <marker date="1460543112498" expanded="true" signature="4037:4250" placeholder="SELECT booki... login" />
-                    <marker date="1460543112498" expanded="true" signature="4427:4827" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5437:5802" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6035" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6076" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6082" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6085" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6091" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6111" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="5990:6156" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="6321:6357" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="6321:6416" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="6321:6429" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="6321:6459" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="6321:6474" placeholder="SELECT login... login" />
-                    <marker date="1460543112498" expanded="true" signature="6727:6861" placeholder="INSERT INTO booking... " />
-                    <marker date="1460543112498" expanded="true" signature="6887:7009" placeholder="INSERT INTO file_source... " />
-                    <marker date="1460543112498" expanded="true" signature="7304:7415" placeholder="UPDATE panel... " />
-                    <marker date="1460543112498" expanded="true" signature="7575:7633" placeholder="UPDATE user_... " />
-                    <marker date="1460543112498" expanded="true" signature="7575:7663" placeholder="UPDATE user_... " />
-                    <marker date="1460543112498" expanded="true" signature="7575:7674" placeholder="UPDATE user_... " />
-                    <marker date="1460543112498" expanded="true" signature="7575:7682" placeholder="UPDATE user_... " />
-                    <marker date="1460543112498" expanded="true" signature="7996:8139" placeholder="INSERT INTO panel... " />
-                    <marker date="1460543112498" expanded="true" signature="7996:8219" placeholder="INSERT INTO panel... " />
-                    <marker date="1460543112498" expanded="true" signature="7996:8220" placeholder="INSERT INTO panel... " />
-                    <marker date="1460543112498" expanded="true" signature="7996:8237" placeholder="INSERT INTO panel... " />
-                    <marker date="1460543112498" expanded="true" signature="8327:8376" placeholder="INSERT INTO panel_source... " />
-                    <marker date="1460543112498" expanded="true" signature="8327:8435" placeholder="INSERT INTO panel_source... " />
-                    <marker date="1460543112498" expanded="true" signature="8327:8436" placeholder="INSERT INTO panel_source... " />
-                    <marker date="1460543112498" expanded="true" signature="8327:8488" placeholder="INSERT INTO panel_source... " />
-                    <marker date="1460543112498" expanded="true" signature="8514:8548" placeholder="INSERT INTO panel_usage... " />
-                    <marker date="1460543112498" expanded="true" signature="8514:8600" placeholder="INSERT INTO panel_usage... " />
-                    <marker date="1460543112498" expanded="true" signature="9006:9060" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9095" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9117" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9126" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9156" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9161" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9167" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9173" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9206" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9236" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9237" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9250" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9260" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9338" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9006:9356" placeholder="SELECT booki... booking" />
-                    <marker date="1460543112498" expanded="true" signature="9536:9904" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="9536:9930" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="9536:9936" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="9536:9937" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10633" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10673" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10681" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10690" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10691" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10711" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10778" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10787" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10835" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:10930" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:11013" placeholder="SELECT panel... panel" />
-                    <marker date="1460543112498" expanded="true" signature="10577:11054" placeholder="SELECT panel... panel" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quicksearch.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5261283">
-                  <caret line="214" column="56" selection-start-line="214" selection-start-column="56" selection-end-line="214" selection-end-column="56" />
-                  <folding>
-                    <element signature="e#5343#5383#0#HTML" expanded="true" />
-                    <element signature="e#5778#5806#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="payment.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/pages/payment.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-19.222221">
-                  <caret line="359" column="39" selection-start-line="359" selection-start-column="39" selection-end-line="359" selection-end-column="39" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="flask_fyp.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/flask_fyp.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="70" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#93#0" expanded="true" />
-                    <element signature="e#3599#4651#0" expanded="false" />
-                    <element signature="e#6869#8113#0" expanded="false" />
-                    <element signature="e#8309#9026#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="quicksearch.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.34204274">
-                  <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="quicksearch.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6637931">
+              <caret line="235" column="43" selection-start-line="235" selection-start-column="43" selection-end-line="235" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flask_fyp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flask_fyp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#93#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -228,8 +110,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -278,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,6 +240,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -636,17 +518,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11185819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34336677" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34256056" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -656,6 +537,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -709,6 +591,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flask_fyp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1029,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3024911">
           <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1044,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24940617">
           <caret line="75" column="60" selection-start-line="75" selection-start-column="60" selection-end-line="75" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7458432">
           <caret line="241" column="66" selection-start-line="241" selection-start-column="66" selection-end-line="241" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,7 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.666666">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,16 +954,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45914844">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/db_control.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.024137931">
           <caret line="125" column="21" selection-start-line="125" selection-start-column="21" selection-end-line="125" selection-end-column="21" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
             <marker date="1460543112498" expanded="true" signature="257:371" placeholder="SELECT COUNT... login" />
             <marker date="1460543112498" expanded="true" signature="529:600" placeholder="SELECT login... login" />
             <marker date="1460543112498" expanded="true" signature="811:931" placeholder="INSERT INTO login... " />
@@ -1156,7 +1041,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/payment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.222221">
+        <state vertical-scroll-proportion="0.094827585">
           <caret line="359" column="39" selection-start-line="359" selection-start-column="39" selection-end-line="359" selection-end-column="39" />
           <folding />
         </state>
@@ -1165,24 +1050,18 @@
     <entry file="file://$PROJECT_DIR$/flask_fyp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="70" selection-end-column="35" />
+          <caret line="139" column="0" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
           <folding>
             <element signature="e#0#93#0" expanded="true" />
-            <element signature="e#3599#4651#0" expanded="false" />
-            <element signature="e#6869#8113#0" expanded="false" />
-            <element signature="e#8309#9026#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/quicksearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5261283">
-          <caret line="214" column="56" selection-start-line="214" selection-start-column="56" selection-end-line="214" selection-end-column="56" />
-          <folding>
-            <element signature="e#5343#5383#0#HTML" expanded="true" />
-            <element signature="e#5778#5806#0#HTML" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.6637931">
+          <caret line="235" column="43" selection-start-line="235" selection-start-column="43" selection-end-line="235" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

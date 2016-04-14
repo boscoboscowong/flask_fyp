@@ -44,7 +44,8 @@
                             <div class="col-lg-6">
                                 <div class="input-group date">
                                     <label class="control-label">Date From</label>
-                                    <input id="date_from" autofocus="" type="text" class="form-control form-control-1 input-sm from"
+                                    <input id="date_from" autofocus="" type="text"
+                                           class="form-control form-control-1 input-sm from"
                                            name="date_from"
                                            placeholder="{{ session['date_from'] }}">
                                 </div>
@@ -52,7 +53,8 @@
                             <div class="col-lg-6">
                                 <div class="input-group date">
                                     <label class="control-label">Date To</label>
-                                    <input id="date_to" autofocus="" type="text" class="form-control form-control-1 input-sm from"
+                                    <input id="date_to" autofocus="" type="text"
+                                           class="form-control form-control-1 input-sm from"
                                            name="date_to"
                                            placeholder="{{ session['date_to'] }}">
                                 </div>
@@ -103,7 +105,7 @@
                     </svg>
                     Quicksearch
                 </div>
-                <div class="panel-body" style="height: 400px; overflow-y:scroll">
+                <div id="result_panel" class="panel-body" style="height: 400px; overflow-y:scroll">
                     {% for item in suitable_panel %}
                         <div class="col-lg-6">
                             <div class="hovereffect">
@@ -139,35 +141,34 @@
 
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script>
-            var locations = [
-                {% for item in suitable_panel %}
-                    ['{{ item.name }}', {{ item.latitude }}, {{ item.longitude }}],
-                {% endfor %}
-                ['Maroubra Beach', -33.950198, 151.259302, 1]
-            ];
+        var locations = [
+            {% for item in suitable_panel %}
+                ['{{ item.name }}', {{ item.latitude }}, {{ item.longitude }}],
+            {% endfor %}
+            ['Maroubra Beach', -33.950198, 151.259302, 1]];
 
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 13,
-                center: new google.maps.LatLng(22.2863939, 114.1515148),
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: new google.maps.LatLng(22.2863939, 114.1515148)
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
             });
 
-            var infowindow = new google.maps.InfoWindow();
-
-            var marker, i;
-
-            for (i = 0; i < locations.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                    map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                    return function () {
-                        infowindow.setContent(locations[i][0]);
-                        infowindow.open(map, marker);
-                    }
-                })(marker, i));
-            }
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
 
         var startDate = new Date();
         var fechaFin = new Date();
@@ -212,14 +213,28 @@
                 dataType: 'json',
                 data: "region=" + region + "&mode=" + mode + "&min_price=" + min_price + "&max_price=" + max_price,
                 success: function (result) {
+                    var pid = "",
+                            name = "",
+                            panel_path = "",
+                            airtime_rate = "",
+                            lat = "",
+                            long = "";
+                    $("#result_panel").empty();
                     $.each(result, function (key, val) {
-                        console.log(val);
-                        $.each(val, function (key, val){
-                            console.log(val);
-                            if (key == "pid") {
-                                $("#refresh_img").empty();
-                                 }
-                        })
+                        $.each(val, function (key, val) {
+                            if (key == "pid")
+                                pid = val;
+                            if (key == 'name')
+                                name = val;
+                            if (key == 'panel_path')
+                                panel_path = val;
+                            if (key == 'airtime_rate')
+                                airtime_rate = val;
+                            if (key == 'latitude')
+                                lat = val;
+                            if (key == 'longitude')
+                                long = val;
+                        });
                     });
                 }
             });
