@@ -19,7 +19,7 @@
                     Preference
                 </div>
                 <div class="panel-body">
-                    <form action="" method="post">
+                    <form action="refresh" method="post">
                         <div class="form-group" id="file_type">
                             <label>Region</label>
                             <select id="region" required class="form-control" name="region" autofocus="">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="col-lg-offset-10">
-                            <button type="button" onclick="refresh()"
+                            <button type="submit" id="refresh"
                                     class="btn btn-warning btn-group btn-group-justified">
                                 <strong>Refresh</strong></button>
                         </div>
@@ -106,21 +106,23 @@
                     Quicksearch
                 </div>
                 <div id="result_panel" class="panel-body" style="height: 400px; overflow-y:scroll">
-                    {% for item in suitable_panel %}
-                        <div class="col-lg-6">
-                            <div class="hovereffect">
-                                <img id="refresh_img" class="center-block"
-                                     src="{{ url_for('static', filename='img/' + item.panel_path) }}"
-                                     height="200" width="300" style="margin-bottom: 30px;">
-                                <a id="refresh_pid" href="/booking?pid={{ item.pid }}">
-                                    <div class="overlay">
-                                        <h2 id="refresh_name">{{ item.name }}</h2>
-                                        <h2 id="refresh_airtime_rate">HKD {{ item.airtime_rate }}</h2>
-                                    </div>
-                                </a>
+                    <div id="panel_refresh">
+                        {% for item in suitable_panel %}
+                            <div class="col-lg-6">
+                                <div class="hovereffect">
+                                    <img class="center-block"
+                                         src="{{ url_for('static', filename='img/' + item.panel_path) }}"
+                                         height="200" width="300" style="margin-bottom: 30px;">
+                                    <a id="refresh_pid" href="/booking?pid={{ item.pid }}">
+                                        <div class="overlay">
+                                            <h2 id="refresh_name">{{ item.name }}</h2>
+                                            <h2 id="refresh_airtime_rate">HKD {{ item.airtime_rate }}</h2>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <!--/result panel-->
@@ -148,8 +150,8 @@
             ['Maroubra Beach', -33.950198, 151.259302, 1]];
 
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 13,
-            center: new google.maps.LatLng(22.2863939, 114.1515148)
+            zoom: 12,
+            center: new google.maps.LatLng(22.2964194,114.1705199)
         });
 
         var infowindow = new google.maps.InfoWindow();
@@ -195,49 +197,5 @@
             FromEndDate.setDate(FromEndDate.getDate(new Date(selected.date.valueOf())));
             $('.from').datepicker('setEndDate', FromEndDate);
         });
-    </script>
-    <script>
-        array = [];
-
-        function refresh() {
-            var region = $("#region").val();
-            var mode = $("#mode").val();
-            var date_from = $("#date_from").val();
-            var date_to = $("#date_to").val();
-            var min_price = $("#min_price").val();
-            var max_price = $("#max_price").val();
-
-            $.ajax({
-                method: 'post',
-                url: '/refresh',
-                dataType: 'json',
-                data: "region=" + region + "&mode=" + mode + "&min_price=" + min_price + "&max_price=" + max_price,
-                success: function (result) {
-                    var pid = "",
-                            name = "",
-                            panel_path = "",
-                            airtime_rate = "",
-                            lat = "",
-                            long = "";
-                    $("#result_panel").empty();
-                    $.each(result, function (key, val) {
-                        $.each(val, function (key, val) {
-                            if (key == "pid")
-                                pid = val;
-                            if (key == 'name')
-                                name = val;
-                            if (key == 'panel_path')
-                                panel_path = val;
-                            if (key == 'airtime_rate')
-                                airtime_rate = val;
-                            if (key == 'latitude')
-                                lat = val;
-                            if (key == 'longitude')
-                                long = val;
-                        });
-                    });
-                }
-            });
-        }
     </script>
 {% endblock %}

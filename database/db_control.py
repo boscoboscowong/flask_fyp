@@ -147,11 +147,10 @@ def discount_on_panel_usage(pid):
     return db_connect.execute_select(select_query)
 
 
-"""discount on user freq in payment.html"""
-def discount_on_user_freq(uid):
-    select_query = "SELECT login.*, user_freq FROM login " \
-                   "INNER JOIN user_freq ON login.uid=user_freq.uid " \
-                   "WHERE login.uid='{}'".format(uid)
+"""discount on booking history in payment.html"""
+def discount_on_booking_history(uid):
+    select_query = "SELECT COUNT(*) AS num FROM booking " \
+                   "WHERE booking.uid='{}'".format(uid)
 
     return db_connect.execute_select(select_query)
 

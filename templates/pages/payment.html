@@ -62,25 +62,6 @@
                 <br>
                 <hr>
                 <br>
-                <form>
-                    <div class="form-inline">
-                        <div class="col-lg-6">
-                            <div class="input-group date">
-                                <label class="control-label">Date From</label>
-                                <input type="text" class="form-control form-control-1 input-sm from"
-                                       name="date_from"
-                                       placeholder="{{ session['date_from'] }}">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="input-group date">
-                                <label class="control-label">Date To</label>
-                                <input type="text" class="form-control form-control-1 input-sm from" name="date_to"
-                                       placeholder="{{ session['date_to'] }}">
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
         <!--/demo display-->
@@ -100,52 +81,32 @@
                     <thead>
                     <tr>
                         <th>Description</th>
-                        <th class="text-center">Discount</th>
+                        <th class="text-center"></th>
                         <th></th>
-                        <th class="text-center">Total</th>
+                        <th class="text-center">Discount</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="col-md-9"><em>Baked Rodopa Sheep Feta</em>
+                        <td class="col-md-9 "><em>Offer discount for panel usage</em>
                         </td>
-                        <td class="col-md-1 text-center">$13</td>
+                        <td class="col-md-8 text-right">Number of booking of this panel: </td>
                         <td></td>
-                        <td class="col-md-1 text-center">$26</td>
+                        <td class="col-md-1 text-center">{{ session['discount_on_panel_usage'] }}%</td>
                     </tr>
                     <tr>
-                        <td class="col-md-9"><em>Lebanese Cabbage Salad</em>
+                        <td class="col-md-9"><em>Offer 90% for booking history</em>
                         </td>
-                        <td class="col-md-1 text-center">$8</td>
+                        <td class="col-md-8 text-right">Number of booking you have made: </td>
                         <td></td>
-                        <td class="col-md-1 text-center">$8</td>
+                        <td class="col-md-1 text-center">no discount</td>
                     </tr>
                     <tr>
-                        <td class="col-md-9"><em>Baked Tart with Thyme and Garlic</em>
+                        <td class="col-md-9"><em>Offer 90% if booking period is 3 mths or more</em>
                         </td>
-                        <td class="col-md-1 text-center">$16</td>
+                        <td class="col-md-8 text-right">Your Booking Period: </td>
                         <td></td>
-                        <td class="col-md-1 text-center">$48</td>
-                    </tr>
-                    <tr>
-                        <td>  </td>
-                        <td class="text-right">
-                            <p>
-                                <strong>Subtotal: </strong>
-                            </p>
-                            <p>
-                                <strong>Admin.Fee: </strong>
-                            </p>
-                        </td>
-                        <td></td>
-                        <td class="text-center">
-                            <p>
-                                <strong>$6.94</strong>
-                            </p>
-                            <p>
-                                <strong>$6.94</strong>
-                            </p>
-                        </td>
+                        <td class="col-md-1 text-center">90%</td>
                     </tr>
                     <tr>
                         <td>  </td>
@@ -153,7 +114,7 @@
                             <h4><strong>Total: </strong></h4></td>
                         <td></td>
                         <td class="text-center text-danger">
-                            <h4><strong>$31.53</strong></h4></td>
+                            <h4><strong>270,000</strong></h4></td>
                     </tr>
                     </tbody>
                 </table>

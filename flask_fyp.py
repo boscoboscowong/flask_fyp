@@ -66,14 +66,11 @@ def quicksearch():
 
 @app.route('/refresh', methods=['POST'])
 def refresh():
-    print request.form['region']
-    print request.form['mode']
-    print request.form['min_price']
-    print request.form['max_price']
-    rows = db_control.get_all_panel_by_preference(request.form['region'], request.form['mode'], request.form['min_price'], request.form['max_price'])
-    results = {idx: rows[idx] for idx in range(0, len(rows))}
-    return jsonify(results)
 
+    return render_template('pages/quicksearch.html',
+                           title='Quicksearch',
+                           suitable_panel=db_control.get_all_panel_by_preference(request.form['region'], request.form['mode'],
+                                                                                 request.form['min_price'], request.form['max_price']))
 
 
 
@@ -122,13 +119,29 @@ def payment():
         file_path = os.path.join(prefix_path, secure_filename(f.filename))
         f.save(file_path)
 
+        booking_ratio = db_control.discount_on_panel_usage(pid)
+
+        if booking_ratio[0]['used'] == 0:
+            session['discount_on_panel_usage'] = 90
+        elif (booking_ratio[0]['used'] / booking_ratio[0]['cap']) >= 0.8:
+            session['discount_on_panel_usage'] = 95
+        elif (booking_ratio[0]['used'] / booking_ratio[0]['cap']) == 1:
+            session['discount_on_panel_usage'] = 'no discount'
+        else:
+            session['discount_on_panel_usage'] = 'no discount'
+
+        booking_freq = db_control.discount_on_booking_history(session['uid'][0]['uid'])
+
+        if booking_freq[0] > 5:
+            session['discount_on_booking_freq'] = 90
+        else:
+            session['discount_on_booking_freq'] = 'no discount'
 
         return render_template('pages/payment.html',
                                title='Payment',
                                panel_list_by_pid=db_control.get_panel_detail(pid),
                                panel_all_image=db_control.list_all_image_of_panel(pid),
-                               demo_display=db_control.get_all_file_of_panel(pid, session['date_from'],
-                                                                             session['date_to']))
+                               demo_display=db_control.get_all_file_of_panel(pid, session['date_from'], session['date_to']))
 
 
 @app.route('/simulation', methods=['POST'])
